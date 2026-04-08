@@ -35,7 +35,10 @@ import Blog1 from "./components/Blog1";
 import Blog2 from "./components/Blog2";
 import March from "./components/March";
 import Admin from "./components/Admin";
-
+import May from "./components/May";
+import King from "./components/King";
+import Walk from "./components/Walk";
+import Game from "./components/Game";
 
 // 🔥 HOME PAGE
 function Home() {
@@ -109,6 +112,10 @@ export default function App() {
       <Route path="/blog2" element={<Blog2 />} />
       <Route path="/march" element={<March />} />
       <Route path="/admin" element={<Admin />} />
+       <Route path="/may" element={<May />} />
+<Route path="/king" element={<King />} />
+<Route path="/walk" element={<Walk />} />
+<Route path="/game" element={<Game />} />
 
 
 

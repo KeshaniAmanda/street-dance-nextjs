@@ -46,7 +46,11 @@ const Hero7 = () => {
               Aenean<br /> imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper<br /> ultricies nisi.
             </p>
 
-            <button className="mt-6 text-yellow-400 text-xs tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+            {/* 🔥 UPDATED BUTTON */}
+            <button
+              onClick={() => window.open("/music", "_blank")}
+              className="mt-6 text-yellow-400 text-xs tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
+            >
               → PARTICIPATE
             </button>
 

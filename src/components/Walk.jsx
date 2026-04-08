@@ -1,6 +1,5 @@
 import React from "react";
 import { Phone, MapPin, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -22,31 +21,46 @@ const Footer = () => {
 
           <div className="space-y-4 text-sm">
 
-            <a href="tel:167712444227" className="flex items-center gap-3 group">
-              <Phone size={16} className="text-yellow-400" />
-              <span className="group-hover:text-yellow-400">
+            {/* PHONE */}
+            <a
+              href="tel:167712444227"
+              className="flex items-center gap-3 group transition"
+            >
+              <Phone
+                size={16}
+                className="text-yellow-400 group-hover:text-yellow-400"
+              />
+              <span className="group-hover:text-yellow-400 transition">
                 1-677-124-44227
               </span>
             </a>
 
+            {/* ADDRESS */}
             <a
               href="https://maps.google.com/?q=184 Main Collins Street"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 group transition"
             >
-              <MapPin size={16} className="text-yellow-400" />
-              <span className="group-hover:text-yellow-400">
+              <MapPin
+                size={16}
+                className="text-yellow-400 group-hover:text-yellow-400"
+              />
+              <span className="group-hover:text-yellow-400 transition">
                 184 Main Collins Street
               </span>
             </a>
 
+            {/* EMAIL */}
             <a
               href="mailto:vibez@example.com"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 group transition"
             >
-              <Mail size={16} className="text-yellow-400" />
-              <span className="group-hover:text-yellow-400">
+              <Mail
+                size={16}
+                className="text-yellow-400 group-hover:text-yellow-400"
+              />
+              <span className="group-hover:text-yellow-400 transition">
                 vibez@example.com
               </span>
             </a>
@@ -59,6 +73,7 @@ const Footer = () => {
           <h3 className="text-white font-semibold mb-6 tracking-wider">
             LATEST TWEETS
           </h3>
+
           <p className="text-sm text-gray-300 ">
             Couldn't connect with Twitter
           </p>
@@ -72,49 +87,34 @@ const Footer = () => {
 
           <div className="space-y-5 text-sm">
 
-            {/* POST 1 */}
             <div>
-              <Link to="/may">
-                <p className="text-yellow-400 text-xs hover:underline cursor-pointer">
-                  May 16, 2016
-                </p>
-              </Link>
-
-              <Link to="/king">
-                <p className="text-gray-300 hover:text-yellow-400 transition">
-                  KING OF DANCERS
-                </p>
-              </Link>
+              <p className="text-yellow-400 text-xs">May 16, 2016</p>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-yellow-400 transition"
+              >
+                KING OF DANCERS
+              </a>
             </div>
 
-            {/* POST 2 */}
             <div>
-              <Link to="/may">
-                <p className="text-yellow-400 text-xs hover:underline cursor-pointer">
-                  May 16, 2016
-                </p>
-              </Link>
-
-              <Link to="/walk">
-                <p className="text-gray-300 hover:text-yellow-400 transition">
-                  DON'T WALK! DANCE!
-                </p>
-              </Link>
+              <p className="text-yellow-400 text-xs">May 16, 2016</p>
+              <a
+                href="#"
+                className="text--gray-300 hover:text-yellow-400 transition"
+              >
+                DON'T WALK! DANCE!
+              </a>
             </div>
 
-            {/* POST 3 */}
             <div>
-              <Link to="/may">
-                <p className="text-yellow-400 text-xs hover:underline cursor-pointer">
-                  May 16, 2016
-                </p>
-              </Link>
-
-              <Link to="/game">
-                <p className="text-gray-300 hover:text-yellow-400 transition">
-                  BREATHTAKING GAME
-                </p>
-              </Link>
+              <p className="text-yellow-400 text-xs">May 16, 2016</p>
+              <a
+                href="#"
+                className="text--gray-300 hover:text-yellow-400 transition"
+              >
+                BREATHTAKING GAME
+              </a>
             </div>
 
           </div>
@@ -125,6 +125,8 @@ const Footer = () => {
           <h3 className="text-white font-semibold mb-6 tracking-wider">
             INSTAGRAM
           </h3>
+
+          
         </div>
 
       </div>
@@ -132,14 +134,9 @@ const Footer = () => {
       {/* BOTTOM BAR */}
       <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-400">
         © 2017{" "}
-       <a
-  href="https://qodeinteractive.com/?_gl=1%2A1yvm9n9%2A_gcl_au%2AMTA0MTE3NzQ1MC4xNzc0OTM0NDk0"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hover:text-yellow-400 transition"
->
-  QODE INTERACTIVE
-</a>
+        <a href="#" className="hover:text-yellow-400 transition">
+          QODE INTERACTIVE
+        </a>
         , ALL RIGHTS RESERVED
       </div>
 

@@ -14,6 +14,15 @@ import h9i from "../assets/h9i.png";
 import h9j from "../assets/h9j.png";
 
 const Hero9 = () => {
+
+  // 🔥 Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // smooth scroll
+    });
+  };
+
   return (
     <section className="w-full">
 
@@ -27,17 +36,13 @@ const Hero9 = () => {
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 items-center">
 
-          {/* TITLE */}
           <h2 className="text-black text-2xl md:text-4xl font-light uppercase leading-tight text-right">
             MEETING OUR AMAZING <br />
             <span className="font-semibold">DANCE TEACHERS</span>
           </h2>
 
-          {/* TEXT */}
           <p className="text-gray-500 text-base leading-relaxed max-w-md">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean
-            commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque
-            penatibus et magnis dis
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
           </p>
         </div>
       </div>
@@ -54,7 +59,6 @@ const Hero9 = () => {
 
           <div key={index} className="relative overflow-hidden group">
 
-            {/* IMAGE */}
             <img
               src={item.img}
               alt=""
@@ -65,38 +69,29 @@ const Hero9 = () => {
                 transition duration-500`}
             />
 
-            {/* OVERLAY */}
             <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col items-center justify-center text-white">
 
-              {/* NAME */}
-              <h3 className="text-2xl md:text-3xl font-semibold tracking-wide">
+              <h3 className="text-2xl md:text-3xl font-semibold">
                 {item.name}
               </h3>
 
-              {/* ROLE */}
-              <p className="text-sm md:text-base text-gray-300 mb-3">
+              <p className="text-sm text-gray-300 mb-3">
                 {item.role}
               </p>
 
-              {/* ICONS */}
               <div className="flex gap-4 text-lg">
-
-                <a href="#" className="hover:text-yellow-400 transition cursor-pointer">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-instagram"></i>
                 </a>
-
-                <a href="#" className="hover:text-yellow-400 transition cursor-pointer">
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-twitter"></i>
                 </a>
-
-                <a href="#" className="hover:text-yellow-400 transition cursor-pointer">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-
-                <a href="#" className="hover:text-yellow-400 transition cursor-pointer">
+                <a href="https://www.tumblr.com/" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-tumblr"></i>
                 </a>
-
               </div>
 
             </div>
@@ -117,6 +112,7 @@ const Hero9 = () => {
               <img
                 src={logo}
                 alt="logo"
+                onClick={scrollToTop}   // 👈 click event
                 className="h-16 md:h-24 object-contain
                            invert opacity-80
                            hover:invert-0 hover:brightness-0 hover:opacity-100
