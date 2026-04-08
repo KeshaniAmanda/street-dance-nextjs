@@ -40,6 +40,14 @@ import King from "./components/King";
 import Walk from "./components/Walk";
 import Game from "./components/Game";
 
+import September from "./components/September";
+import Perfect from "./components/Perfect";
+import Heart from "./components/Heart";
+import Classic from "./components/Classic";
+
+import FloatingBuy from "./components/FloatingBuy";
+
+
 // 🔥 HOME PAGE
 function Home() {
   useEffect(() => {
@@ -81,44 +89,51 @@ function Home() {
 }
 
 
-// 🔥 MAIN APP
 export default function App() {
   return (
-    <Routes>
+    <>
+      <Routes>
 
-      {/* HOME */}
-      <Route path="/" element={<Home />} />
+        {/* HOME */}
+        <Route path="/" element={<Home />} />
 
-      {/* BASIC PAGES */}
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/aboutus" element={<AboutUs />} />
-      <Route path="/event" element={<Event />} />
+        {/* BASIC PAGES */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/event" element={<Event />} />
 
-      {/* DANCE PAGES */}
-      <Route path="/breakdance" element={<BreakDance />} />
-      <Route path="/newdancers" element={<NewDancers />} />
-      <Route path="/thedance" element={<TheDance />} />
+        {/* DANCE PAGES */}
+        <Route path="/breakdance" element={<BreakDance />} />
+        <Route path="/newdancers" element={<NewDancers />} />
+        <Route path="/thedance" element={<TheDance />} />
 
-      {/* EXTRA SECTIONS */}
-      <Route path="/graffiti" element={<Graffiti />} />
-      <Route path="/exhibition" element={<Exhibition />} />
-      <Route path="/organized" element={<Organized />} />
-      <Route path="/attitude" element={<Attitude />} />
-      <Route path="/neon" element={<Neon />} />
-      <Route path="/music" element={<Music />} />
+        {/* EXTRA SECTIONS */}
+        <Route path="/graffiti" element={<Graffiti />} />
+        <Route path="/exhibition" element={<Exhibition />} />
+        <Route path="/organized" element={<Organized />} />
+        <Route path="/attitude" element={<Attitude />} />
+        <Route path="/neon" element={<Neon />} />
+        <Route path="/music" element={<Music />} />
 
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blog1" element={<Blog1 />} />
-      <Route path="/blog2" element={<Blog2 />} />
-      <Route path="/march" element={<March />} />
-      <Route path="/admin" element={<Admin />} />
-       <Route path="/may" element={<May />} />
-<Route path="/king" element={<King />} />
-<Route path="/walk" element={<Walk />} />
-<Route path="/game" element={<Game />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog1" element={<Blog1 />} />
+        <Route path="/blog2" element={<Blog2 />} />
+        <Route path="/march" element={<March />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/may" element={<May />} />
+        <Route path="/king" element={<King />} />
+        <Route path="/walk" element={<Walk />} />
+        <Route path="/game" element={<Game />} />
+        <Route path="/september" element={<September />} />
+        <Route path="/perfect" element={<Perfect />} />
+        <Route path="/heart" element={<Heart />} />
+        <Route path="/classic" element={<Classic />} />
 
+      </Routes>
 
+      {/* 🔥 FLOATING BUTTON (GLOBAL) */}
+      <FloatingBuy />
 
-    </Routes>
+    </>
   );
 }
