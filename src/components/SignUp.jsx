@@ -1,147 +1,106 @@
 import React from "react";
-import { Phone, MapPin, Mail } from "lucide-react";
 
-const SignUp = () => {
+import heroImg from "../assets/h5b.jpg";
+import signImg from "../assets/sign1.jpg";
+
+const Sanu = () => {
   return (
-    <footer className="bg-[#0f0f0f] text-gray-300">
+    <div className="w-full">
 
-      {/* TOP SECTION */}
-      <div className="grid md:grid-cols-4 gap-10 px-6 md:px-16 py-16">
+      {/* HERO SECTION */}
+      <div
+        className="w-full h-[400px] bg-cover bg-center flex items-center justify-center relative"
+        style={{ backgroundImage: `url(${heroImg})` }}
+      >
+        {/* overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* ABOUT US */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            ABOUT US
-          </h3>
-
-          <p className="text-sm leading-relaxed mb-6">
-            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-            Phasellus viverra nulla ut metus varius laoreet quisque.
+        <div className="relative text-center text-white px-4">
+          <p className="max-w-[600px] text-sm mb-4">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor.
           </p>
+          <h1 className="text-4xl font-bold tracking-widest">
+            MUSIC <br /> CLASS
+          </h1>
+        </div>
+      </div>
 
-          <div className="space-y-4 text-sm">
+      {/* EVENT PASSED */}
+      <div className="bg-blue-100 text-blue-800 text-sm px-6 py-3">
+        This event has passed.
+      </div>
 
-            {/* PHONE */}
-            <a
-              href="tel:167712444227"
-              className="flex items-center gap-3 group transition"
-            >
-              <Phone
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                1-677-124-44227
-              </span>
-            </a>
+      {/* TITLE + PRICE */}
+      <div className="flex items-center justify-between px-6 md:px-16 py-6 border-b">
+        <div className="flex items-center gap-4">
+          {/* DATE BOX */}
+          <div className="bg-green-500 text-white text-center px-4 py-3">
+            <p className="text-lg font-bold">26</p>
+            <p className="text-xs">DEC</p>
+          </div>
 
-            {/* ADDRESS */}
-            <a
-              href="https://maps.google.com/?q=184 Main Collins Street"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 group transition"
-            >
-              <MapPin
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                184 Main Collins Street
-              </span>
-            </a>
-
-            {/* EMAIL */}
-            <a
-              href="mailto:vibez@example.com"
-              className="flex items-center gap-3 group transition"
-            >
-              <Mail
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                vibez@example.com
-              </span>
-            </a>
-
+          <div>
+            <h2 className="text-2xl font-semibold">MUSIC CLASS</h2>
+            <p className="text-gray-500 text-sm">
+              DECEMBER 26, 2024 @ 8:00 AM - 8:00 PM
+            </p>
           </div>
         </div>
 
-        {/* LATEST TWEETS */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            LATEST TWEETS
-          </h3>
+        {/* PRICE */}
+        <div className="bg-black text-white px-6 py-2 font-semibold">
+          $80
+        </div>
+      </div>
 
-          <p className="text-sm text-gray-300 ">
-            Couldn't connect with Twitter
-          </p>
+      {/* CONTENT SECTION */}
+      <div className="grid md:grid-cols-2 gap-10 px-6 md:px-16 py-10">
+
+        {/* LEFT IMAGE */}
+        <div>
+          <img
+            src={signImg}
+            alt="event"
+            className="w-full h-[300px] object-cover"
+          />
         </div>
 
-        {/* LATEST POSTS */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            LATEST POSTS
-          </h3>
+        {/* MAP (FAKE UI STYLE) */}
+        <div className="w-full h-[300px] bg-gray-200 flex items-center justify-center relative">
 
-          <div className="space-y-5 text-sm">
-
-            <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-yellow-400 transition"
-              >
-                KING OF DANCERS
-              </a>
-            </div>
-
-            <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text--gray-300 hover:text-yellow-400 transition"
-              >
-                DON'T WALK! DANCE!
-              </a>
-            </div>
-
-            <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text--gray-300 hover:text-yellow-400 transition"
-              >
-                BREATHTAKING GAME
-              </a>
-            </div>
-
+          <div className="absolute top-3 left-3 bg-white px-3 py-1 text-sm shadow">
+            Map
           </div>
+
+          <p className="text-gray-500">Google Map Placeholder</p>
         </div>
-
-        {/* INSTAGRAM */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            INSTAGRAM
-          </h3>
-
-          
-        </div>
-
       </div>
 
-      {/* BOTTOM BAR */}
-      <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-400">
-        © 2017{" "}
-        <a href="#" className="hover:text-yellow-400 transition">
-          QODE INTERACTIVE
-        </a>
-        , ALL RIGHTS RESERVED
+      {/* EVENT DETAILS */}
+      <div className="px-6 md:px-16 pb-16">
+        <h3 className="text-xl font-semibold mb-6">EVENT DETAILS</h3>
+
+        <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+
+          <div className="space-y-3">
+            <p><span className="font-semibold text-black">Date:</span> December 26, 2024</p>
+            <p><span className="font-semibold text-black">Time:</span> 8:00 am - 8:00 pm</p>
+            <p><span className="font-semibold text-black">Venue:</span> HipHop</p>
+            <p><span className="font-semibold text-black">Address:</span> 2777 Goethals Rd N</p>
+          </div>
+
+          <div className="space-y-3">
+            <p><span className="font-semibold text-black">Organizer:</span> David Harrison</p>
+            <p><span className="font-semibold text-black">Phone:</span> 1-677-124-44227</p>
+            <p><span className="font-semibold text-black">Website:</span> info@yoursite.com</p>
+          </div>
+
+        </div>
       </div>
 
-    </footer>
+    </div>
   );
 };
 
-export default SignUp;
+export default Sanu;

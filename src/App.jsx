@@ -42,6 +42,8 @@ import Game from "./components/Game";
 
 import September from "./components/September";
 import Perfect from "./components/Perfect";
+import Perfect1 from "./components/Perfect1";
+import Perfect2 from "./components/Perfect2";
 import Heart from "./components/Heart";
 import Classic from "./components/Classic";
 
@@ -125,7 +127,19 @@ export default function App() {
         <Route path="/walk" element={<Walk />} />
         <Route path="/game" element={<Game />} />
         <Route path="/september" element={<September />} />
-        <Route path="/perfect" element={<Perfect />} />
+       
+
+                  <Route
+            path="/perfect"
+            element={
+              <>
+                <Perfect />
+                <Perfect1 />
+                 <Perfect2 />
+                
+              </>
+            }
+          />
         <Route path="/heart" element={<Heart />} />
         <Route path="/classic" element={<Classic />} />
 
