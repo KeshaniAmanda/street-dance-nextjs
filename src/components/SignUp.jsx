@@ -18,7 +18,7 @@ const Sanu = () => {
       >
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative w-full max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-white">
+        <div className="relative w-full max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center gap-16 text-white">
 
           <div className="max-w-[580px] text-right ml-6 md:ml-24">
             <p className="text-sm md:text-base opacity-80 leading-relaxed">
@@ -27,11 +27,15 @@ const Sanu = () => {
             </p>
           </div>
 
-          <div className="mt-6 md:mt-0 text-center md:text-right md:mr-80">
-            <h1 className="text-2xl md:text-4xl font-light tracking-[6px] leading-tight font-mont uppercase">
-              MUSIC <br /> CLASS
-            </h1>
-          </div>
+         <div className="text-left ml-0 md:-ml-10">
+              <h1 className="text-white text-4xl md:text-5xl leading-tight">
+  <span className="font-bold">MUSIC</span>
+</h1>
+
+<h2 className="text-white text-4xl md:text-5xl mt-2">
+ CLASS<span className="font-semi"></span>
+</h2>
+            </div>
 
         </div>
       </div>
@@ -187,8 +191,8 @@ const Sanu = () => {
           <button
             onClick={() => setActiveBtn("ical")}
             className="px-7 py-3 text-sm font-semibold shadow transition 
-                       bg-emerald-500 text-white 
-                       hover:bg-black"
+                       bg-black text-white 
+                       hover:bg-emerald-500"
           >
             + ADD TO ICALENDAR
           </button>

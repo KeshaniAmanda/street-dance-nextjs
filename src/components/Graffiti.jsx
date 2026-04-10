@@ -1,147 +1,184 @@
-import React from "react";
-import { Phone, MapPin, Mail } from "lucide-react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaTumblr,
+  FaPinterestP,
+} from "react-icons/fa";
 
-const Footer = () => {
+// IMAGES
+import mainImg from "../assets/h3c.jpg";
+import main1Img from "../assets/h3b.jpg";
+import main2Img from "../assets/h3e.jpg";
+
+const Graffiti = () => {
+  const images = [mainImg, main1Img, main2Img];
+
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  // NEXT
+  const nextSlide = () => {
+    if (animating) return;
+    setAnimating(true);
+
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+      setAnimating(false);
+    }, 300);
+  };
+
+  // PREV
+  const prevSlide = () => {
+    if (animating) return;
+    setAnimating(true);
+
+    setTimeout(() => {
+      setCurrent((prev) =>
+        prev === 0 ? images.length - 1 : prev - 1
+      );
+      setAnimating(false);
+    }, 300);
+  };
+
   return (
-    <footer className="bg-[#0f0f0f] text-gray-300">
+    <div className="bg-white">
 
-      {/* TOP SECTION */}
-      <div className="grid md:grid-cols-4 gap-10 px-6 md:px-16 py-16">
+      {/* HERO */}
+      <div className="bg-[#20c4b7] py-16 text-center text-white">
+        <h1 className="text-[40px] tracking-widest font-semibold">
+          GRAFFITI
+        </h1>
 
-        {/* ABOUT US */}
+        <div className="mt-3 text-sm text-white/80 flex justify-center gap-2">
+          <Link to="/" className="hover:text-black transition">Home</Link>
+          <span>/</span>
+          <Link to="/urban-dance" className="hover:text-black transition">
+            Urban Dance
+          </Link>
+          <span>/</span>
+          <span>Graffiti</span>
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="max-w-[1400px] mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-start">
+
+        {/* 🔥 LEFT SLIDER */}
         <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            ABOUT US
-          </h3>
+          <div className="relative w-full h-[500px] overflow-hidden">
 
-          <p className="text-sm leading-relaxed mb-6">
-            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-            Phasellus viverra nulla ut metus varius laoreet quisque.
-          </p>
+            {/* IMAGE */}
+            <img
+              src={images[current]}
+              className={`w-full h-full object-cover transition-all duration-500 ${
+                animating ? "opacity-0 scale-95" : "opacity-100 scale-100"
+              }`}
+            />
 
-          <div className="space-y-4 text-sm">
-
-            {/* PHONE */}
-            <a
-              href="tel:167712444227"
-              className="flex items-center gap-3 group transition"
+            {/* LEFT ARROW */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl 
+              hover:text-[#20c4b7] transition"
             >
-              <Phone
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                1-677-124-44227
-              </span>
-            </a>
+              ‹
+            </button>
 
-            {/* ADDRESS */}
-            <a
-              href="https://maps.google.com/?q=184 Main Collins Street"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 group transition"
+            {/* RIGHT ARROW */}
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl 
+              hover:text-[#20c4b7] transition"
             >
-              <MapPin
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                184 Main Collins Street
-              </span>
-            </a>
-
-            {/* EMAIL */}
-            <a
-              href="mailto:vibez@example.com"
-              className="flex items-center gap-3 group transition"
-            >
-              <Mail
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                vibez@example.com
-              </span>
-            </a>
+              ›
+            </button>
 
           </div>
         </div>
 
-        {/* LATEST TWEETS */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            LATEST TWEETS
-          </h3>
+        {/* RIGHT DETAILS */}
+        <div className="sticky top-28 h-fit">
 
-          <p className="text-sm text-gray-300 ">
-            Couldn't connect with Twitter
+          <h2 className="text-3xl font-semibold tracking-wide text-black mb-6">
+            PROJECT NAME
+          </h2>
+
+          <p className="text-gray-500 leading-7 text-[15px] mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam cursus.
+            Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet
+            mattis, massa.
           </p>
-        </div>
 
-        {/* LATEST POSTS */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            LATEST POSTS
-          </h3>
-
-          <div className="space-y-5 text-sm">
-
+          <div className="space-y-5 text-[14px]">
             <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-yellow-400 transition"
-              >
-                KING OF DANCERS
-              </a>
+              <h4 className="font-semibold text-black">CLIENT:</h4>
+              <p className="text-gray-500">Creative Performance Group</p>
             </div>
 
             <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text--gray-300 hover:text-yellow-400 transition"
-              >
-                DON'T WALK! DANCE!
-              </a>
+              <h4 className="font-semibold text-black">CATEGORY:</h4>
+              <p className="text-gray-500">Urban Dance</p>
             </div>
 
             <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text--gray-300 hover:text-yellow-400 transition"
-              >
-                BREATHTAKING GAME
-              </a>
+              <h4 className="font-semibold text-black">DATE:</h4>
+              <p className="text-gray-500">September 29, 2016</p>
             </div>
-
           </div>
+
+          {/* SOCIAL */}
+          <div className="flex gap-5 mt-10 text-black text-sm">
+            <FaFacebookF className="hover:text-[#20c4b7] cursor-pointer" />
+            <FaTwitter className="hover:text-[#20c4b7] cursor-pointer" />
+            <FaLinkedinIn className="hover:text-[#20c4b7] cursor-pointer" />
+            <FaTumblr className="hover:text-[#20c4b7] cursor-pointer" />
+            <FaPinterestP className="hover:text-[#20c4b7] cursor-pointer" />
+          </div>
+
         </div>
-
-        {/* INSTAGRAM */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            INSTAGRAM
-          </h3>
-
-          
-        </div>
-
       </div>
 
-      {/* BOTTOM BAR */}
-      <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-400">
-        © 2017{" "}
-        <a href="#" className="hover:text-yellow-400 transition">
-          QODE INTERACTIVE
-        </a>
-        , ALL RIGHTS RESERVED
+      {/* 🔥 BOTTOM NAV */}
+      <div className="max-w-[1400px] mx-auto px-6 pb-16">
+        <div className="flex items-center justify-between">
+
+          {/* LEFT */}
+          <button
+            onClick={prevSlide}
+            className="text-gray-400 text-2xl hover:text-[#20c4b7] transition"
+          >
+            ←
+          </button>
+
+          {/* DOTS */}
+          <Link to="/" className="group">
+            <div className="grid grid-cols-2 gap-2">
+              {[0, 1, 2, 3].map((dot) => (
+                <span
+                  key={dot}
+                  className="w-2 h-2 rounded-full bg-black 
+                  group-hover:bg-[#20c4b7] transition"
+                ></span>
+              ))}
+            </div>
+          </Link>
+
+          {/* RIGHT */}
+          <button
+            onClick={nextSlide}
+            className="text-gray-400 text-2xl hover:text-[#20c4b7] transition"
+          >
+            →
+          </button>
+
+        </div>
       </div>
 
-    </footer>
+    </div>
   );
 };
 
-export default Footer;
+export default Graffiti;

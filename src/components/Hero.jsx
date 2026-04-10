@@ -81,7 +81,7 @@ export default function Hero() {
       ))}
 
       {/* 🖤 Overlay */}
-      <div className="absolute inset-0 bg-black/60 z-20 pointer-events-none"></div>
+      <div className="absolute inset-0  z-20 pointer-events-none"></div>
 
       {/* 📦 Content Wrapper */}
       <div

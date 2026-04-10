@@ -17,14 +17,29 @@ import Hero8 from "./components/Hero8";
 import Hero9 from "./components/Hero9";
 import Hero10 from "./components/Hero10";
 
-// 🔥 PAGES
+// SingUP PAGES
 import SignUp from "./components/SignUp";
+import SignUp1 from "./components/SignUp1";
+// AboutUs PAGES
 import AboutUs from "./components/AboutUs";
+import AboutUs1 from "./components/AboutUs1";
+// Event PAGES
 import Event from "./components/Event";
+import Event1 from "./components/Event1";
+// Breakdance PAGES
 import BreakDance from "./components/BreakDance";
+import BreakDance1 from "./components/BreakDance1";
+
 import NewDancers from "./components/NewDancers";
+import NewDancers1 from "./components/NewDancers1";
+
 import TheDance from "./components/TheDance";
+import TheDance1 from "./components/TheDance1";
+
 import Graffiti from "./components/Graffiti";
+import Graffiti1 from "./components/Graffiti1";
+
+
 import Exhibition from "./components/Exhibition";
 import Organized from "./components/Organized";
 import Attitude from "./components/Attitude";
@@ -99,18 +114,95 @@ export default function App() {
         {/* HOME */}
         <Route path="/" element={<Home />} />
 
-        {/* BASIC PAGES */}
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/event" element={<Event />} />
+        {/* SignUp PAGES */}
+        
+                  <Route
+            path="/signup"
+            element={
+              <>
+                <SignUp />
+                <SignUp1 />
+                 
+                
+              </>
+            }
+          />
+           {/* AboutUs PAGES */}
+         <Route
+            path="/aboutus"
+            element={
+              <>
+                <AboutUs />
+                <AboutUs1 />
+                 
+                
+              </>
+            }
+          />
+           {/* Event PAGES */}
+        <Route
+            path="/event"
+            element={
+              <>
+                <Event />
+                <Event1 />
+                 
+                
+              </>
+            }
+          />
+        {/* BreakDANCE PAGES */}
+      <Route
+            path="/breakdance"
+            element={
+              <>
+                <BreakDance />
+                <BreakDance1 />
+                 
+                
+              </>
+            }
+          />
 
-        {/* DANCE PAGES */}
-        <Route path="/breakdance" element={<BreakDance />} />
-        <Route path="/newdancers" element={<NewDancers />} />
-        <Route path="/thedance" element={<TheDance />} />
+        {/*NEWDANCE PAGES */}
+         <Route
+            path="/newdancers"
+            element={
+              <>
+                <NewDancers />
+                <NewDancers1 />
+                 
+                
+              </>
+            }
+          />
+        
+        {/*THEDANCE PAGES */}
+         <Route
+            path="/thedance"
+            element={
+              <>
+                <TheDance />
+                <TheDance1 />
+                 
+                
+              </>
+            }
+          />
+        
+        <Route
+            path="/graffiti"
+            element={
+              <>
+                <Graffiti />
+                <Graffiti1 />
+                 
+                
+              </>
+            }
+          />
 
         {/* EXTRA SECTIONS */}
-        <Route path="/graffiti" element={<Graffiti />} />
         <Route path="/exhibition" element={<Exhibition />} />
         <Route path="/organized" element={<Organized />} />
         <Route path="/attitude" element={<Attitude />} />

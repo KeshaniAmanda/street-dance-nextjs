@@ -1,147 +1,163 @@
-import React from "react";
-import { Phone, MapPin, Mail } from "lucide-react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaTumblr,
+  FaPinterestP,
+} from "react-icons/fa";
 
-const Footer = () => {
+// IMAGES
+import mainImg from "../assets/h3c.jpg";
+import main1Img from "../assets/h3b.jpg"; 
+import main2Img from "../assets/h3e.jpg"; 
+
+const NewDancer = () => {
+
+  // DOT ACTIVE STATE
+  const [activeDot, setActiveDot] = useState(0);
+
   return (
-    <footer className="bg-[#0f0f0f] text-gray-300">
+    <div className="bg-white">
 
-      {/* TOP SECTION */}
-      <div className="grid md:grid-cols-4 gap-10 px-6 md:px-16 py-16">
+      {/* HERO */}
+      <div className="bg-[#20c4b7] py-16 text-center text-white">
+        
+        <h1 className="text-[40px] tracking-widest font-semibold">
+          NEW DANCERS
+        </h1>
 
-        {/* ABOUT US */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            ABOUT US
-          </h3>
+        {/* BREADCRUMB */}
+        <div className="mt-3 text-sm text-white/80 flex justify-center gap-2">
 
-          <p className="text-sm leading-relaxed mb-6">
-            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-            Phasellus viverra nulla ut metus varius laoreet quisque.
-          </p>
+          <Link to="/" className="hover:text-black transition">
+            Home
+          </Link>
 
-          <div className="space-y-4 text-sm">
+          <span>/</span>
 
-            {/* PHONE */}
-            <a
-              href="tel:167712444227"
-              className="flex items-center gap-3 group transition"
-            >
-              <Phone
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                1-677-124-44227
-              </span>
-            </a>
+          <Link to="/urban-dance" className="hover:text-black transition">
+            Urban Dance
+          </Link>
 
-            {/* ADDRESS */}
-            <a
-              href="https://maps.google.com/?q=184 Main Collins Street"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 group transition"
-            >
-              <MapPin
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                184 Main Collins Street
-              </span>
-            </a>
+          <span>/</span>
 
-            {/* EMAIL */}
-            <a
-              href="mailto:vibez@example.com"
-              className="flex items-center gap-3 group transition"
-            >
-              <Mail
-                size={16}
-                className="text-yellow-400 group-hover:text-yellow-400"
-              />
-              <span className="group-hover:text-yellow-400 transition">
-                vibez@example.com
-              </span>
-            </a>
+          <span className="text-white">New Dancers</span>
 
-          </div>
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="max-w-[1400px] mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-start">
+
+        {/* LEFT IMAGES */}
+        
+          <div>
+  <img
+    src={mainImg}
+    className="w-full h-[400px] object-cover"
+  />
+
+  <div className="mt-10">
+    <img
+      src={main1Img}
+      className="w-full h-[400px] object-cover"
+    />
+  </div>
+
+  <div className="mt-10">
+    <img
+      src={main2Img}
+      className="w-full h-[400px] object-cover"
+    />
+  </div>
+
+          {/* 🔥 DOTS */}
+          <div className="w-full flex justify-end items-center mt-24 pr-4">
+
+  <Link to="/" className="group">
+    
+    <div className="grid grid-cols-2 gap-2">
+      
+      {[0, 1, 2, 3].map((dot) => (
+        <span
+          key={dot}
+          className="w-2 h-2 rounded-full bg-black group-hover:bg-[#20c4b7] transition duration-300"
+        ></span>
+      ))}
+
+    </div>
+
+  </Link>
+
+</div>
         </div>
 
-        {/* LATEST TWEETS */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            LATEST TWEETS
-          </h3>
+        {/* RIGHT DETAILS */}
+        <div className="sticky top-28 h-fit">
 
-          <p className="text-sm text-gray-300 ">
-            Couldn't connect with Twitter
+          <h2 className="text-3xl font-semibold tracking-wide text-black mb-6">
+            PROJECT NAME
+          </h2>
+
+          <p className="text-gray-500 leading-7 text-[15px] mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam cursus.
+            Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet
+            mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante,
+            elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt
+            lectus quis dui viverra vestibulum.
           </p>
-        </div>
 
-        {/* LATEST POSTS */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            LATEST POSTS
-          </h3>
-
-          <div className="space-y-5 text-sm">
+          {/* META */}
+          <div className="space-y-5 text-[14px]">
 
             <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-yellow-400 transition"
-              >
-                KING OF DANCERS
-              </a>
+              <h4 className="font-semibold text-black">CLIENT:</h4>
+              <p className="text-gray-500">Creative Performance Group</p>
             </div>
 
             <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text--gray-300 hover:text-yellow-400 transition"
-              >
-                DON'T WALK! DANCE!
-              </a>
+              <h4 className="font-semibold text-black">CATEGORY:</h4>
+              <p className="text-gray-500">Urban Dance</p>
             </div>
 
             <div>
-              <p className="text-yellow-400 text-xs">May 16, 2016</p>
-              <a
-                href="#"
-                className="text--gray-300 hover:text-yellow-400 transition"
-              >
-                BREATHTAKING GAME
-              </a>
+              <h4 className="font-semibold text-black">DATE:</h4>
+              <p className="text-gray-500">September 29, 2016</p>
             </div>
 
           </div>
+
+          {/* 🔥 SOCIAL ICONS */}
+          <div className="flex gap-5 mt-10 text-black text-sm">
+
+            <a href="/" className="hover:text-[#20c4b7] transition">
+              <FaFacebookF />
+            </a>
+
+            <a href="/" className="hover:text-[#20c4b7] transition">
+              <FaTwitter />
+            </a>
+
+            <a href="/" className="hover:text-[#20c4b7] transition">
+              <FaLinkedinIn />
+            </a>
+
+            <a href="/" className="hover:text-[#20c4b7] transition">
+              <FaTumblr />
+            </a>
+
+            <a href="/" className="hover:text-[#20c4b7] transition">
+              <FaPinterestP />
+            </a>
+
+          </div>
+
         </div>
-
-        {/* INSTAGRAM */}
-        <div>
-          <h3 className="text-white font-semibold mb-6 tracking-wider">
-            INSTAGRAM
-          </h3>
-
-          
-        </div>
-
       </div>
-
-      {/* BOTTOM BAR */}
-      <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-400">
-        © 2017{" "}
-        <a href="#" className="hover:text-yellow-400 transition">
-          QODE INTERACTIVE
-        </a>
-        , ALL RIGHTS RESERVED
-      </div>
-
-    </footer>
+    </div>
   );
 };
 
-export default Footer;
+export default NewDancer;
