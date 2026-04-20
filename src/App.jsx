@@ -16,6 +16,11 @@ import Hero7 from "./components/Hero7";
 import Hero8 from "./components/Hero8";
 import Hero9 from "./components/Hero9";
 import Hero10 from "./components/Hero10";
+import DanceStudio from "./components/DanceStudio";
+import DanceStudio1 from "./components/DanceStudio1";
+import DanceStudio2 from "./components/DanceStudio2";
+import DanceStudio3 from "./components/DanceStudio3";
+import DanceStudio4 from "./components/DanceStudio4";
 
 // SingUP PAGES
 import SignUp from "./components/SignUp";
@@ -219,7 +224,21 @@ export default function App() {
         <Route path="/walk" element={<Walk />} />
         <Route path="/game" element={<Game />} />
         <Route path="/september" element={<September />} />
+
        
+       <Route
+            path="/dance-studio"
+            element={
+              <>
+                <DanceStudio />
+                <DanceStudio1 />
+                <DanceStudio2 />
+                <DanceStudio3 />
+                <DanceStudio4 />
+                
+              </>
+            }
+          />
 
                   <Route
             path="/perfect"
