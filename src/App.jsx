@@ -21,6 +21,10 @@ import DanceStudio1 from "./components/DanceStudio1";
 import DanceStudio2 from "./components/DanceStudio2";
 import DanceStudio3 from "./components/DanceStudio3";
 import DanceStudio4 from "./components/DanceStudio4";
+import DanceStudio5 from "./components/DanceStudio5";
+import DanceStudio6 from "./components/DanceStudio6";
+import DanceStudio7 from "./components/DanceStudio7";
+import DanceStudio8 from "./components/DanceStudio8";
 
 // SingUP PAGES
 import SignUp from "./components/SignUp";
@@ -235,6 +239,10 @@ export default function App() {
                 <DanceStudio2 />
                 <DanceStudio3 />
                 <DanceStudio4 />
+                <DanceStudio5 />
+                <DanceStudio6 />
+                <DanceStudio7 />
+                <DanceStudio8 />
                 
               </>
             }

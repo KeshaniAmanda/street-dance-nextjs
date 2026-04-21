@@ -84,11 +84,11 @@ export default function DanceSection() {
         {/* CONTENT */}
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+          <h2 className="text-4xl md:text-4xl text-right text-gray-800">
             MEETING OUR AMAZING <br /> DANCE TEACHERS
           </h2>
 
-          <p className="text-gray-500 max-w-md">
+          <p className="text-gray-500 max-w-md text-left">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit
             nean commodo ligula eget dolor. Aenean massa. Cum sociis
             Theme natoque penatibus et magnis dis

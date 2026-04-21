@@ -20,13 +20,13 @@ const DS3 = () => {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
           {/* LEFT TEXT */}
-          <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-md">
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-md text-right ml-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit nean commodo ligula eget dolor.
             Aenean massa. Cum sociis Theme natoque penatibus et magnis dis
           </p>
 
           {/* RIGHT HEADING */}
-          <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-wide text-black text-left md:text-right">
+          <h2 className="text-3xl md:text-4xl leading-tight tracking-wide text-black text-left ">
             KEEP TRACK OF OUR AMAZING <br />
             UPCOMING EVENTS
           </h2>
@@ -59,7 +59,7 @@ const DS3 = () => {
             </div>
 
             {/* TITLE */}
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-black">
+            <h2 className="text-3xl md:text-4xl leading-tight text-black text-right md:col-span-2">
               MEETING OUR AMAZING <br />
               DANCE TEACHERS
             </h2>

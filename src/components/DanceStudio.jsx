@@ -56,7 +56,7 @@ export default function DanceStudio() {
               </p>
 
               <div className="flex gap-4">
-                <button className="bg-teal-500 px-6 py-3">SIGN UP</button>
+                <button className="bg-[#19c2a0] px-6 py-3">SIGN UP</button>
                 <button className="border px-6 py-3">PURCHASE</button>
               </div>
             </div>
