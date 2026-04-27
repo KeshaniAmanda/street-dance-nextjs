@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo from "../assets/logo.png";
+import logo1 from "../assets/logo_white.png";
+import logo2 from "../assets/logo.png";
+import logo3 from "../assets/logo (1).png";
 import { Menu, X, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import img1 from "../assets/Hamburger1.webp";
 import img2 from "../assets/Hamburger2.webp";
 import img3 from "../assets/Hamburger3.webp";
@@ -225,6 +229,28 @@ const [showCart, setShowCart] = useState(false);
   
 const navigate = useNavigate();
 
+const location = useLocation();
+
+const navbarConfig = {
+  "/dance-studio": {
+    logo: logo1,
+    underline: "bg-[#19c2a0]",
+  },
+  "/pole-dance": {
+    logo: logo2,
+    underline: "bg-red-500",
+  },
+  "/hiphop": {
+    logo: logo3,
+    underline: "bg-yellow-400",
+  },
+};
+
+const current = navbarConfig[location.pathname] || {
+  logo: logo,
+  underline: "bg-yellow-400",
+};
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -238,7 +264,7 @@ const navigate = useNavigate();
         
         {/* Logo */}
       <Link to="/" className="flex items-center ml-16">
-  <img src={logo} alt="logo" className="h-10 w-auto" />
+ <img src={current.logo} alt="logo" className="h-10 w-auto" />
 </Link>
 
         {/* Desktop Menu */}
@@ -545,7 +571,7 @@ const navigate = useNavigate();
 
           {/* UNDERLINE */}
           <span
-  className="absolute bottom-0 h-[2px] bg-yellow-400 transition-all duration-300"
+  className={`absolute bottom-0 h-[2px] transition-all duration-300 ${current.underline}`}
   style={{
     left: underlineStyle.left,
     width: underlineStyle.width,

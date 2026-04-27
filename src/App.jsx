@@ -4,7 +4,8 @@ import "./index.css";
 import { Routes, Route } from "react-router-dom";
 
 // 🔥 COMPONENTS
-import Navbar from "./components/Navbar";
+
+import Layout from "./Layout";
 import Hero from "./components/Hero";
 import Hero1 from "./components/Hero1";
 import Hero2 from "./components/Hero2";
@@ -47,6 +48,7 @@ import TheDance1 from "./components/TheDance1";
 
 import Graffiti from "./components/Graffiti";
 import Graffiti1 from "./components/Graffiti1";
+import About from "./components/About";
 
 
 import Exhibition from "./components/Exhibition";
@@ -98,7 +100,8 @@ function Home() {
 
   return (
     <div className="grain bg-dark min-h-screen">
-      <Navbar />
+    
+      
       <Hero />
       <Hero1 />
       <Hero2 />
@@ -119,6 +122,7 @@ export default function App() {
   return (
     <>
       <Routes>
+        <Route element={<Layout />}>
 
         {/* HOME */}
         <Route path="/" element={<Home />} />
@@ -210,7 +214,7 @@ export default function App() {
               </>
             }
           />
-
+<Route path="/about" element={<About />} />
         {/* EXTRA SECTIONS */}
         <Route path="/exhibition" element={<Exhibition />} />
         <Route path="/organized" element={<Organized />} />
@@ -261,7 +265,7 @@ export default function App() {
           />
         <Route path="/heart" element={<Heart />} />
         <Route path="/classic" element={<Classic />} />
-
+  </Route>
       </Routes>
 
       {/* 🔥 FLOATING BUTTON (GLOBAL) */}
