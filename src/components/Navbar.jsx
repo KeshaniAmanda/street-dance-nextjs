@@ -230,6 +230,25 @@ const [showCart, setShowCart] = useState(false);
 const navigate = useNavigate();
 
 const location = useLocation();
+const isPortfolioPage = location.pathname.startsWith("/portfolio");
+const hoverColor = isPortfolioPage
+  ? "hover:text-[#19c2a0]"
+  : "hover:text-yellow-400";
+useEffect(() => {
+  if (location.pathname.startsWith("/portfolio")) {
+    setActiveLink("Portfolio");
+  } else if (location.pathname.startsWith("/events")) {
+    setActiveLink("Events");
+  } else if (location.pathname.startsWith("/about") || location.pathname.startsWith("/who")) {
+    setActiveLink("Pages");
+  } else if (location.pathname.startsWith("/blog")) {
+    setActiveLink("Blogs");
+  } else if (location.pathname.startsWith("/shop")) {
+    setActiveLink("Shop");
+  } else {
+    setActiveLink("Home");
+  }
+}, [location.pathname]);
 
 const navbarConfig = {
   "/dance-studio": {
@@ -248,23 +267,32 @@ const navbarConfig = {
 
 const current = navbarConfig[location.pathname] || {
   logo: logo,
-  underline: "bg-yellow-400",
+  underline: isPortfolioPage ? "bg-[#19c2a0]" : "bg-yellow-400",
 };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-black/90 backdrop-blur-md py-3 border-b border-white/10"
-          : "bg-transparent py-6"
-      }`}
-    >
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    isPortfolioPage
+      ? scrolled
+        ? "bg-white py-4 shadow-md"
+        : "bg-[#f3f3f3] py-6"   // 👈 light gray (top part)
+      : scrolled
+      ? "bg-black/90 backdrop-blur-md py-3 border-b border-white/10"
+      : "bg-transparent py-6"
+  }`}
+>
+
         <div className="max-w-7xl-ml-32 mr-auto px-6 flex items-center justify-between">
     
         
         {/* Logo */}
       <Link to="/" className="flex items-center ml-16">
- <img src={current.logo} alt="logo" className="h-10 w-auto" />
+ <img
+  src={isPortfolioPage ? logo3 : current.logo}
+  alt="logo"
+  className="h-10 w-auto"
+/>
 </Link>
 
         {/* Desktop Menu */}
@@ -285,16 +313,20 @@ const current = navbarConfig[location.pathname] || {
               >
                 <button
                   onClick={() => setActiveLink(link)}
-                  className={`text-sm uppercase tracking-widest transition ${
-                    activeLink === link
-                      ? "text-white"
-                      : "text-white/70 hover:text-white"
-                  }`}
+              className={`text-sm uppercase tracking-widest transition ${
+  isPortfolioPage
+    ? activeLink === link
+      ? "text-black"
+      : "text-black/70 hover:text-[#19c2a0]"
+    : activeLink === link
+    ? "text-white"
+    : "text-white/70 hover:text-white"
+}`}
                 >
                   {link}
                 </button>
 
-
+ {/* HOME */}
                 {dropdown === "Home" && link === "Home" && (
   <div className="absolute left-0 top-full pt-3 z-50">
     <div className="h-3 w-full"></div>
@@ -305,11 +337,11 @@ const current = navbarConfig[location.pathname] || {
         <Link
           key={i}
           to={item.path}
-          className={`block py-2 text-sm transition-all duration-300 transform ${
-            item.name === "Hip-Hop Dance"
-              ? "text-yellow-400 translate-x-2 font-semibold"
-              : "text-white/70 hover:text-yellow-400 hover:translate-x-2"
-          }`}
+         className={`block py-2 text-sm transition-all duration-300 transform ${
+  item.name === "Hip-Hop Dance"
+    ? `${isPortfolioPage ? "text-[#19c2a0]" : "text-yellow-400"} translate-x-2 font-semibold`
+    : `text-white/70 ${hoverColor} hover:translate-x-2`
+}`}
         >
           {item.name}
         </Link>
@@ -330,7 +362,7 @@ const current = navbarConfig[location.pathname] || {
         <Link
           key={i}
           to={item.path}
-          className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+         className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
         >
           {item.name}
         </Link>
@@ -353,7 +385,7 @@ const current = navbarConfig[location.pathname] || {
           {item.path ? (
             <Link
               to={item.path}
-              className="flex justify-between items-center py-2 text-sm text-white/70 hover:text-yellow-400"
+              className={`flex justify-between items-center py-2 text-sm text-white/70 ${hoverColor}`}
             >
               {item.name}
             </Link>
@@ -389,7 +421,7 @@ const current = navbarConfig[location.pathname] || {
           <Link
             key={i}
             to={sub.path}
-            className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+            className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
           >
             {sub.name}
           </Link>
@@ -417,7 +449,11 @@ const current = navbarConfig[location.pathname] || {
             <Link
               key={j}
               to={item.path}
-              className="block py-1 text-sm text-white/70 hover:text-yellow-400 transition-all duration-300 hover:translate-x-2"
+              className={`block py-1 text-sm transition-all duration-300 hover:translate-x-2 ${
+  isPortfolioPage
+    ? "text-white/70 hover:text-[#19c2a0]"
+    : "text-white/70 hover:text-yellow-400"
+}`}
             >
               {item.name}
             </Link>
@@ -439,7 +475,7 @@ const current = navbarConfig[location.pathname] || {
           key={i}
           onMouseEnter={() => setSubDropdown(menu.title)}
         >
-          <div className="flex justify-between items-center py-2 text-sm text-white/70 hover:text-yellow-400 cursor-pointer">
+          <div className={`flex justify-between items-center py-2 text-sm text-white/70 ${hoverColor}`}>
             {menu.title}
             <span>›</span>
           </div>
@@ -459,7 +495,7 @@ const current = navbarConfig[location.pathname] || {
               <Link
                 key={j}
                 to={item.path}
-                className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+                className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
               >
                 {item.name}
               </Link>
@@ -480,7 +516,7 @@ const current = navbarConfig[location.pathname] || {
         <Link
           key={i}
           to={item.path}
-          className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+          className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
         >
           {item.name}
         </Link>
@@ -489,7 +525,7 @@ const current = navbarConfig[location.pathname] || {
       {/* Shop Layouts */}
       <div
         onMouseEnter={() => setSubDropdown("layouts")}
-        className="flex justify-between items-center py-2 text-sm text-white/70 hover:text-yellow-400 cursor-pointer"
+        className={`flex justify-between items-center py-2 text-sm text-white/70 ${hoverColor}`}
       >
         Shop Layouts <span>›</span>
       </div>
@@ -497,7 +533,7 @@ const current = navbarConfig[location.pathname] || {
       {/* Shop Pages */}
       <div
         onMouseEnter={() => setSubDropdown("pages")}
-        className="flex justify-between items-center py-2 text-sm text-white/70 hover:text-yellow-400 cursor-pointer"
+        className={`flex justify-between items-center py-2 text-sm text-white/70 ${hoverColor}`}
       >
         Show Pages <span>›</span>
       </div>
@@ -510,7 +546,7 @@ const current = navbarConfig[location.pathname] || {
           <Link
             key={i}
             to={item.path}
-            className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+            className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
           >
             {item.name}
           </Link>
@@ -525,7 +561,7 @@ const current = navbarConfig[location.pathname] || {
           <Link
             key={i}
             to={item.path}
-            className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+           className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
           >
             {item.name}
           </Link>
@@ -554,7 +590,7 @@ const current = navbarConfig[location.pathname] || {
             <Link
               key={j}
               to={item.path}
-              className="block py-1 text-sm text-white/70 hover:text-yellow-400 transition-all duration-300 hover:translate-x-2"
+              className={`block py-1 text-sm text-white/70 ${hoverColor} transition-all duration-300 hover:translate-x-2`}
             >
               {item.name}
             </Link>
@@ -579,12 +615,17 @@ const current = navbarConfig[location.pathname] || {
 />
         </div>
         {/* RIGHT SIDE ICONS */}
-<div className="flex items-center gap-6 text-white ml-8">
-
+<div
+  className={`flex items-center gap-6 ml-8 ${
+    isPortfolioPage ? "text-black" : "text-white"
+  }`}
+>
  
 {/* Cart */}
 <div
-  className="relative cursor-pointer hover:text-yellow-400 transition-colors duration-300"
+ className={`relative cursor-pointer transition-colors duration-300 ${
+  isPortfolioPage ? "hover:text-[#19c2a0]" : "hover:text-yellow-400"
+}`}
   onMouseEnter={() => setShowCart(true)}
 onMouseLeave={() => setShowCart(false)}
   onClick={() => navigate("/cart")}
@@ -592,9 +633,13 @@ onMouseLeave={() => setShowCart(false)}
   <ShoppingBag size={20} />
 
   {/* Count */}
-  <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs px-1.5 rounded-full">
-    0
-  </span>
+  <span
+  className={`absolute -top-2 -right-2 text-xs px-1.5 rounded-full ${
+    isPortfolioPage ? "bg-[#19c2a0] text-white" : "bg-yellow-400 text-black"
+  }`}
+>
+  0
+</span>
 
   {/* Hover Popup */}
   {showCart && (
@@ -606,17 +651,21 @@ onMouseLeave={() => setShowCart(false)}
 
   {/* Search */}
   <button
-    onClick={() => setShowSearch(!showSearch)}
-    className="hover:text-yellow-400 transition-colors duration-300"
-  >
+  onClick={() => setShowSearch(!showSearch)}
+  className={`transition-colors duration-300 ${
+    isPortfolioPage ? "hover:text-[#19c2a0]" : "hover:text-yellow-400"
+  }`}
+>
     <Search size={20} />
   </button>
 
   {/* Hamburger */}
   <button
-    className="hover:text-yellow-400 transition-colors duration-300"
-    onClick={() => setOpen(!open)}
-  >
+  className={`transition-colors duration-300 ${
+    isPortfolioPage ? "hover:text-[#19c2a0]" : "hover:text-yellow-400"
+  }`}
+  onClick={() => setOpen(!open)}
+>
     <Menu size={22} />
   </button>
 

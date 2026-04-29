@@ -49,7 +49,30 @@ import TheDance1 from "./components/TheDance1";
 import Graffiti from "./components/Graffiti";
 import Graffiti1 from "./components/Graffiti1";
 import About from "./components/About";
+import About1 from "./components/About1";
+import About2 from "./components/About2";
+import About3 from "./components/About3";
+import Events from "./components/Events";
+import Events1 from "./components/Events1";
+import Tc1 from "./components/Tc1";
+import Tc2 from "./components/Tc2";
 
+import InspirationalMove from "./components/InspirationalMove";
+import InspirationalMove1 from "./components/InspirationalMove1";
+import GroupDance from "./components/GroupDance";
+import GroupDance1 from "./components/GroupDance1";
+import DanceAct from "./components/DanceAct";
+import DanceAct1 from "./components/DanceAct1";
+import BalletsFinest from "./components/BalletsFinest";
+import BalletsFinest1 from "./components/BalletsFinest1";
+import GroupMove from "./components/GroupMove";
+import Wanderlust from "./components/Wanderlust";
+import MoonDance from "./components/MoonDance";
+import ModernBallet from "./components/ModernBallet";
+import Flamenco from "./components/Flamenco";
+
+import BlogStandard from "./components/BlogStandard";
+import BlogStandard1 from "./components/BlogStandard1";
 
 import Exhibition from "./components/Exhibition";
 import Organized from "./components/Organized";
@@ -214,7 +237,110 @@ export default function App() {
               </>
             }
           />
-<Route path="/about" element={<About />} />
+
+          <Route
+            path="/about"
+            element={
+              <>
+                <About />
+                <About1 />
+                <About2 />
+                <About3 />
+                 
+                
+              </>
+            }
+          />
+
+          <Route
+            path="/events-calendar"
+            element={
+              <>
+                <Events />
+                <Events1 />
+               
+                
+              </>
+            }
+          />
+
+          <Route
+            path="/portfolio/three-columns"
+            element={
+              <>
+                <Tc1 />
+                <Tc2 />
+               
+                
+              </>
+            }
+          />
+          <Route
+            path="/portfolio/inspirational-move"
+            element={
+              <>
+                <InspirationalMove />
+                <InspirationalMove1 />
+               
+                
+              </>
+            }
+          />
+          <Route
+            path="/portfolio/group-dance"
+            element={
+              <>
+                <GroupDance  />
+                <GroupDance1 />
+               
+                
+              </>
+            }
+          />
+           <Route
+            path="/portfolio/dance-act"
+            element={
+              <>
+                <DanceAct  />
+                <DanceAct1 />
+               
+                
+              </>
+            }
+          />
+          <Route
+            path="/portfolio/ballets-finest"
+            element={
+              <>
+                <BalletsFinest />
+                <BalletsFinest1 />
+               
+                
+              </>
+            }
+          />
+
+        
+        <Route path="/portfolio/group-move" element={<GroupMove />} />
+        <Route path="/portfolio/wanderlust" element={<Wanderlust />} />
+        <Route path="/portfolio/moon-dance" element={<MoonDance />} />
+        <Route path="/portfolio/modern-ballet" element={<ModernBallet />} />
+        <Route path="/portfolio/flamenco" element={<Flamenco />} />
+
+        <Route
+            path="/blog/no-sidebar"
+            element={
+              <>
+                <BlogStandard />
+                <BlogStandard1 />
+               
+                
+              </>
+            }
+          />
+        
+
+
         {/* EXTRA SECTIONS */}
         <Route path="/exhibition" element={<Exhibition />} />
         <Route path="/organized" element={<Organized />} />
