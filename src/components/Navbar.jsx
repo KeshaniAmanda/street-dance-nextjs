@@ -195,7 +195,7 @@ const elementsMegaMenu = [
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
-const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(null);
@@ -230,10 +230,38 @@ const [showCart, setShowCart] = useState(false);
 const navigate = useNavigate();
 
 const location = useLocation();
-const isPortfolioPage = location.pathname.startsWith("/portfolio");
-const hoverColor = isPortfolioPage
-  ? "hover:text-[#19c2a0]"
-  : "hover:text-yellow-400";
+const isHomeSubPage =
+  location.pathname.startsWith("/dance-studio") ||
+  location.pathname.startsWith("/pole-dance") ||
+  location.pathname.startsWith("/hiphop") ||
+  location.pathname.startsWith("/modern-dance") ||
+  location.pathname.startsWith("/ballet") ||
+  location.pathname.startsWith("/latino") ||
+  location.pathname.startsWith("/kids-ballet") ||
+  location.pathname.startsWith("/landing") ;
+  const isPagesPage =
+  location.pathname.startsWith("/about") ||
+  location.pathname.startsWith("/who-we-are") ||
+  location.pathname.startsWith("/instructors") ||
+  location.pathname.startsWith("/crew") ||
+  location.pathname.startsWith("/what-we-do") ||
+  location.pathname.startsWith("/pricing") ||
+  location.pathname.startsWith("/contact") ||
+  location.pathname.startsWith("/faq") ||
+  location.pathname.startsWith("/coming-soon") ||
+  location.pathname.startsWith("/events")
+  location.pathname.startsWith("/error");
+  const isHomePage = location.pathname === "/";
+const isSpecialPage =
+  location.pathname.startsWith("/portfolio") ||
+  location.pathname.startsWith("/blog") ||
+  location.pathname.startsWith("/shop") ||
+  location.pathname.startsWith("/elements"); 
+const hoverColor =
+  isHomePage
+    ? "hover:text-yellow-400"
+    : "hover:text-[#19c2a0]";
+  const isBlogPage = location.pathname.startsWith("/blog");
 useEffect(() => {
   if (location.pathname.startsWith("/portfolio")) {
     setActiveLink("Portfolio");
@@ -267,19 +295,23 @@ const navbarConfig = {
 
 const current = navbarConfig[location.pathname] || {
   logo: logo,
-  underline: isPortfolioPage ? "bg-[#19c2a0]" : "bg-yellow-400",
+  underline:
+    isHomeSubPage || isSpecialPage || isPagesPage 
+      ? "bg-[#19c2a0]"
+      : "bg-yellow-400",
 };
-
   return (
     <nav
   className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-    isPortfolioPage
-      ? scrolled
-        ? "bg-white py-4 shadow-md"
-        : "bg-[#f3f3f3] py-6"   // 👈 light gray (top part)
-      : scrolled
-      ? "bg-black/90 backdrop-blur-md py-3 border-b border-white/10"
-      : "bg-transparent py-6"
+    isBlogPage
+  ? "bg-white py-4 shadow-md"
+  : isSpecialPage
+  ? scrolled
+    ? "bg-white py-4 shadow-md"
+    : "bg-[#f3f3f3] py-6"
+  : scrolled
+  ? "bg-black/90 backdrop-blur-md py-3 border-b border-white/10"
+  : "bg-transparent py-6"
   }`}
 >
 
@@ -288,8 +320,14 @@ const current = navbarConfig[location.pathname] || {
         
         {/* Logo */}
       <Link to="/" className="flex items-center ml-16">
- <img
-  src={isPortfolioPage ? logo3 : current.logo}
+<img
+  src={
+    isSpecialPage
+      ? logo3   // ✅ Portfolio / Blog / Shop / Elements
+      : isPagesPage || isHomeSubPage
+      ? logo1   // ✅ Other pages (white logo)
+      : current.logo // ✅ Home dynamic logo
+  }
   alt="logo"
   className="h-10 w-auto"
 />
@@ -314,14 +352,14 @@ const current = navbarConfig[location.pathname] || {
                 <button
                   onClick={() => setActiveLink(link)}
               className={`text-sm uppercase tracking-widest transition ${
-  isPortfolioPage
-    ? activeLink === link
-      ? "text-black"
-      : "text-black/70 hover:text-[#19c2a0]"
-    : activeLink === link
-    ? "text-white"
-    : "text-white/70 hover:text-white"
-}`}
+                isSpecialPage || isHomeSubPage
+  ? activeLink === link
+    ? "text-black"
+  : "text-black/70 hover:text-[#19c2a0]"
+  : activeLink === link
+  ? "text-white"
+  : "text-white/70 hover:text-white"
+  }`}
                 >
                   {link}
                 </button>
@@ -338,9 +376,11 @@ const current = navbarConfig[location.pathname] || {
           key={i}
           to={item.path}
          className={`block py-2 text-sm transition-all duration-300 transform ${
-  item.name === "Hip-Hop Dance"
-    ? `${isPortfolioPage ? "text-[#19c2a0]" : "text-yellow-400"} translate-x-2 font-semibold`
-    : `text-white/70 ${hoverColor} hover:translate-x-2`
+ item.name === "Hip-Hop Dance"
+  ? `${
+      isHomePage ? "text-yellow-400" : "text-[#19c2a0]"
+    } translate-x-2 font-semibold`
+  : `text-white/70 ${hoverColor} hover:translate-x-2`
 }`}
         >
           {item.name}
@@ -359,14 +399,16 @@ const current = navbarConfig[location.pathname] || {
     <div className="bg-[#1a1a1a] w-52 py-6 px-6 shadow-2xl border border-white/10">
       
       {pagesDropdown.map((item, i) => (
-        <Link
-          key={i}
-          to={item.path}
-         className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
-        >
-          {item.name}
-        </Link>
-      ))}
+  <Link
+    key={i}
+    to={item.path}
+    className={`block py-2 text-sm text-white/70 transition-all duration-300 hover:translate-x-2 ${
+      isHomePage ? "hover:text-yellow-400" : "hover:text-[#19c2a0]"
+    }`}
+  >
+    {item.name}
+  </Link>
+))}
 
     </div>
   </div>
@@ -390,7 +432,7 @@ const current = navbarConfig[location.pathname] || {
               {item.name}
             </Link>
           ) : (
-            <div className="flex justify-between items-center py-2 text-sm text-white/70 hover:text-yellow-400 cursor-pointer">
+            <div className={`flex justify-between items-center py-2 text-sm text-white/70 ${hoverColor}`}>
               {item.name}
               <span>›</span>
             </div>
@@ -406,7 +448,7 @@ const current = navbarConfig[location.pathname] || {
           <Link
             key={i}
             to={sub.path}
-            className="block py-2 text-sm text-white/70 hover:text-yellow-400 hover:translate-x-2 transition-all duration-300"
+           className={`block py-2 text-sm text-white/70 ${hoverColor} hover:translate-x-2 transition-all duration-300`}
           >
             {sub.name}
           </Link>
@@ -447,16 +489,14 @@ const current = navbarConfig[location.pathname] || {
 
           {col.items.map((item, j) => (
             <Link
-              key={j}
-              to={item.path}
-              className={`block py-1 text-sm transition-all duration-300 hover:translate-x-2 ${
-  isPortfolioPage
-    ? "text-white/70 hover:text-[#19c2a0]"
-    : "text-white/70 hover:text-yellow-400"
-}`}
-            >
-              {item.name}
-            </Link>
+  key={j}
+  to={item.path}
+  className={`block py-1 text-sm text-white/70 transition-all duration-300 hover:translate-x-2 ${
+    isHomePage ? "hover:text-yellow-400" : "hover:text-[#19c2a0]"
+  }`}
+>
+  {item.name}
+</Link>
           ))}
         </div>
       ))}
@@ -617,14 +657,16 @@ const current = navbarConfig[location.pathname] || {
         {/* RIGHT SIDE ICONS */}
 <div
   className={`flex items-center gap-6 ml-8 ${
-    isPortfolioPage ? "text-black" : "text-white"
+    isSpecialPage  ? "text-black" : "text-white"
   }`}
 >
  
 {/* Cart */}
 <div
  className={`relative cursor-pointer transition-colors duration-300 ${
-  isPortfolioPage ? "hover:text-[#19c2a0]" : "hover:text-yellow-400"
+ isHomeSubPage || isSpecialPage || isPagesPage
+  ? "hover:text-[#19c2a0]"
+  : "hover:text-yellow-400"
 }`}
   onMouseEnter={() => setShowCart(true)}
 onMouseLeave={() => setShowCart(false)}
@@ -635,8 +677,10 @@ onMouseLeave={() => setShowCart(false)}
   {/* Count */}
   <span
   className={`absolute -top-2 -right-2 text-xs px-1.5 rounded-full ${
-    isPortfolioPage ? "bg-[#19c2a0] text-white" : "bg-yellow-400 text-black"
-  }`}
+  isHomeSubPage || isSpecialPage || isPagesPage
+    ? "bg-[#19c2a0] text-white"
+    : "bg-yellow-400 text-black"
+}`}
 >
   0
 </span>
@@ -653,8 +697,10 @@ onMouseLeave={() => setShowCart(false)}
   <button
   onClick={() => setShowSearch(!showSearch)}
   className={`transition-colors duration-300 ${
-    isPortfolioPage ? "hover:text-[#19c2a0]" : "hover:text-yellow-400"
-  }`}
+ isHomeSubPage || isSpecialPage || isPagesPage
+    ? "hover:text-[#19c2a0]"
+    : "hover:text-yellow-400"
+}`}
 >
     <Search size={20} />
   </button>
@@ -662,8 +708,10 @@ onMouseLeave={() => setShowCart(false)}
   {/* Hamburger */}
   <button
   className={`transition-colors duration-300 ${
-    isPortfolioPage ? "hover:text-[#19c2a0]" : "hover:text-yellow-400"
-  }`}
+  isHomeSubPage || isSpecialPage || isPagesPage
+    ? "hover:text-[#19c2a0]"
+    : "hover:text-yellow-400"
+}`}
   onClick={() => setOpen(!open)}
 >
     <Menu size={22} />
@@ -806,4 +854,4 @@ onMouseLeave={() => setShowCart(false)}
     </nav>
     
   );
-}   
+}                                

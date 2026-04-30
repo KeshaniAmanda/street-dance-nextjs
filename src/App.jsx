@@ -72,7 +72,13 @@ import ModernBallet from "./components/ModernBallet";
 import Flamenco from "./components/Flamenco";
 
 import BlogStandard from "./components/BlogStandard";
+import BlogStandard2 from "./components/BlogStandard2";
+import BlogStandard3 from "./components/BlogStandard3";
+import BlogStandard4 from "./components/BlogStandard4";
 import BlogStandard1 from "./components/BlogStandard1";
+
+import Shop from "./components/Shop";
+import Shop1 from "./components/Shop1";
 
 import Exhibition from "./components/Exhibition";
 import Organized from "./components/Organized";
@@ -332,7 +338,22 @@ export default function App() {
             element={
               <>
                 <BlogStandard />
+                <BlogStandard2/>
+                <BlogStandard3/>
+                <BlogStandard4/>
                 <BlogStandard1 />
+               
+                
+              </>
+            }
+          />
+           <Route
+            path="/shop/right-sidebar"
+            element={
+              <>
+                <Shop />
+                <Shop1/>
+                
                
                 
               </>

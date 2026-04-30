@@ -1,158 +1,123 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
-
-// IMAGES
-import img1 from "../assets/tc11.jpg";
-import img2 from "../assets/pf4.jpg";
-import img3 from "../assets/pf6.jpg";
+import bb1 from "../assets/bb1.jpg";
 
 const BlogStandard = () => {
   return (
     <div className="bg-white">
 
-      {/* ================= HERO ================= */}
-      <div className="bg-[#19c2a0] h-[220px] flex flex-col justify-center items-center text-white">
-        <h1 className="text-[34px] tracking-widest font-semibold">
+      {/* BLOG HEADER */}
+      <div className="bg-[#19c2a0] h-[260px] flex flex-col justify-center items-center text-white pt-24">
+        <h1 className="text-[36px] tracking-widest font-semibold">
           BLOG STANDARD
         </h1>
+        <div className="mt-3 text-sm text-white flex justify-center gap-2">
+                  <Link to="/" className="hover:text-black">Home</Link>
+                  <span>/</span>
+                  <span>Blog Standard</span>
+      </div></div>
 
-        <div className="mt-3 text-sm text-white/80 flex gap-2">
-          <Link to="/">Home</Link>
-          <span>/</span>
-          <span>Blog Standard</span>
-        </div>
-      </div>
+      {/* BLOG CONTENT */}
+      <div className="max-w-6xl mx-auto px-6 py-12">
 
-      {/* ================= BLOG LIST ================= */}
-      <div className="max-w-[1100px] mx-auto px-6 py-16 space-y-24">
+        {/* IMAGE */}
+        <div className="w-full">
+  <Link to="/blog-details" className="block overflow-hidden">
+    <img
+      src={bb1}
+      alt="blog"
+      className="w-full h-[700px] object-cover cursor-pointer hover:scale-105 transition duration-500"
+    />
+  </Link>
+</div>
 
-        {/* ===== POST 1 ===== */}
-        <div>
+<div className="mt-6 text-sm text-gray-500 flex flex-wrap items-center gap-2">
 
-          <img src={img1} className="w-full h-[420px] object-cover" />
+  <span className="hover:text-[#19c2a0] cursor-pointer transition">
+    May 16, 2016
+  </span>
 
-          {/* META */}
-          <p className="text-gray-400 text-sm mt-6">
-            May 16, 2016 / By admin / 0 Comments /{" "}
-            <span className="inline-flex items-center gap-1">
-              <FaRegHeart /> 14
-            </span>{" "}
-            / Dance
-          </p>
+  <span>/</span>
 
-          {/* TITLE */}
-          <h2 className="text-3xl font-semibold mt-3">
-            CONTINUE WORKING
-          </h2>
+  <span className="text-gray-500">
+  By{" "}
+  <span className="hover:text-[#19c2a0] cursor-pointer transition">
+    admin
+  </span>
+</span>
 
-          {/* DESC */}
-          <p className="text-gray-500 mt-4 leading-7">
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-            sem. Nulla consequat massa quis enim. Donec pede justo,
-            fringilla vel, aliquet nec, vulputate eget, arcu.
-          </p>
+  <span>/</span>
 
-          {/* READ MORE */}
-          <Link
-            to="/blog-details"
-            className="inline-block mt-4 text-[#19c2a0] text-sm tracking-widest"
-          >
-            → READ MORE
-          </Link>
-        </div>
+  <span className="hover:text-[#19c2a0] cursor-pointer transition">
+    0 Comments
+  </span>
 
-        {/* ===== QUOTE BLOCK ===== */}
-        <div className="bg-gray-100 py-16 px-10 text-center">
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            Far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live in Bookmarksgrove right
-            at the coast of the Semantics, a large language ocean.
-          </p>
+  <span>/</span>
 
-          <h4 className="mt-6 font-semibold tracking-widest">
-            JAMES NEWBIE / PROJECT MANAGER
-          </h4>
-        </div>
+  {/* 🤍 Outline Heart */}
+ <span className="flex items-center gap-1 cursor-pointer text-gray-500 hover:text-[#19c2a0] transition">
+  <FaRegHeart className="transition" />
+  14
+</span>
 
-        {/* ===== POST 2 ===== */}
-        <div>
+  <span>/</span>
 
-          <img src={img2} className="w-full h-[420px] object-cover" />
+  <span className="hover:text-[#19c2a0] cursor-pointer transition">
+    Dance
+  </span>
 
-          <p className="text-gray-400 text-sm mt-6">
-            May 16, 2016 / By admin / 2 Comments /{" "}
-            <span className="inline-flex items-center gap-1">
-              <FaRegHeart /> 1
-            </span>{" "}
-            / Dance
-          </p>
+</div>
 
-          <h2 className="text-3xl font-semibold mt-3">
-            BETWEEN BODY & SOUL
-          </h2>
+        {/* TITLE */}
+        <Link to="/blog-details">
+  <h2 className="text-2xl font-semibold mt-4 tracking-wide text-black hover:text-[#19c2a0] transition duration-300 cursor-pointer">
+    CONTINUE WORKING
+  </h2>
+</Link>
 
-          <p className="text-gray-500 mt-4 leading-7">
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-            sem. Nulla consequat massa quis enim. Donec pede justo.
-          </p>
+        {/* DESCRIPTION */}
+        <p className="text-gray-500 mt-4 leading-7">
+          Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+          Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+          aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+          imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
+          mollis pretium. Integer tincidunt. Etiam rhoncus. Maecenas tempus,
+          tellus eget condimentum rhoncus, sem quam semper libero, sit amet
+          adipiscing sem neque sed ipsum.
+        </p>
 
-          <Link className="inline-block mt-4 text-[#19c2a0] text-sm tracking-widest">
-            → READ MORE
-          </Link>
-        </div>
+        {/* READ MORE */}
+        <Link
+  to="/blog-details"
+  className="mt-6 inline-flex items-center gap-2 text-[#19c2a0] font-semibold hover:text-black hover:gap-3 transition-all duration-300"
+>
+  → READ MORE
+</Link>
 
-        {/* ===== QUOTE SMALL ===== */}
-        <div className="bg-gray-100 py-12 text-center">
-          <h3 className="tracking-widest text-gray-700">
-            DANCE TO EXPRESS NOT TO IMPRESS
+        {/* QUOTE SECTION */}
+        <div className="bg-gray-100 mt-12 py-12 px-6 text-center">
+
+          <p
+  onClick={() => console.log("Clicked!")}
+  className="text-gray-500 max-w-3xl mx-auto leading-7 cursor-pointer hover:text-[#19c2a0] transition duration-300"
+>
+  Far away, behind the word mountains, far from the countries Vokalia
+  and Consonantia, there live in Bookmarksgrove right at the coast of
+  the Semantics, a large language ocean.
+</p>
+
+          {/* 👇 FIXED NAME + ROLE */}
+          <h3 className="mt-6 text-sm tracking-[3px] uppercase font-semibold text-gray-800">
+            JAMES NEWBIE{" "}
+            <span className="text-gray-400 font-normal">
+              / PROJECT MANAGER
+            </span>
           </h3>
-          <p className="text-[#19c2a0] text-sm mt-2">
-            https://qodeinteractive.com
-          </p>
-        </div>
 
-        {/* ===== POST 3 ===== */}
-        <div>
-
-          <img src={img3} className="w-full h-[420px] object-cover" />
-
-          <p className="text-gray-400 text-sm mt-6">
-            May 16, 2016 / By admin / 2 Comments /{" "}
-            <span className="inline-flex items-center gap-1">
-              <FaRegHeart /> 1
-            </span>{" "}
-            / Dance
-          </p>
-
-          <h2 className="text-3xl font-semibold mt-3">
-            AMAZING INSPIRATION
-          </h2>
-
-          <p className="text-gray-500 mt-4 leading-7">
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-            sem. Nulla consequat massa quis enim.
-          </p>
-
-          <Link className="inline-block mt-4 text-[#19c2a0] text-sm tracking-widest">
-            → READ MORE
-          </Link>
         </div>
 
       </div>
-
-      {/* ================= PAGINATION ================= */}
-      <div className="flex justify-center items-center gap-6 pb-20 text-gray-600">
-
-        <span className="cursor-pointer">1</span>
-        <span className="cursor-pointer">2</span>
-
-        <span className="text-xl cursor-pointer hover:text-[#19c2a0]">
-          →
-        </span>
-
-      </div>
-
     </div>
   );
 };
