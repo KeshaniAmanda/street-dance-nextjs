@@ -26,7 +26,8 @@ import DanceStudio5 from "./components/DanceStudio5";
 import DanceStudio6 from "./components/DanceStudio6";
 import DanceStudio7 from "./components/DanceStudio7";
 import DanceStudio8 from "./components/DanceStudio8";
-
+import Poledance from "./components/Poledance";
+import Moderndance from "./components/Moderndance";
 // SingUP PAGES
 import SignUp from "./components/SignUp";
 import SignUp1 from "./components/SignUp1";
@@ -80,6 +81,10 @@ import BlogStandard1 from "./components/BlogStandard1";
 import Shop from "./components/Shop";
 import Shop1 from "./components/Shop1";
 
+import Accordions from "./components/Accordions";
+import Accordions1 from "./components/Accordions1";
+import Accordions2 from "./components/Accordions2";
+
 import Exhibition from "./components/Exhibition";
 import Organized from "./components/Organized";
 import Attitude from "./components/Attitude";
@@ -103,6 +108,7 @@ import Heart from "./components/Heart";
 import Classic from "./components/Classic";
 
 import FloatingBuy from "./components/FloatingBuy";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 // 🔥 HOME PAGE
@@ -251,9 +257,7 @@ export default function App() {
                 <About />
                 <About1 />
                 <About2 />
-                <About3 />
-                 
-                
+                <About3 /> 
               </>
             }
           />
@@ -359,6 +363,19 @@ export default function App() {
               </>
             }
           />
+          <Route
+            path="/elements/accordions"
+            element={
+              <>
+                <Accordions />
+                <Accordions1/>
+                <Accordions2/>
+                
+               
+                
+              </>
+            }
+          />
         
 
 
@@ -398,7 +415,8 @@ export default function App() {
               </>
             }
           />
-
+ <Route path="/pole-dance"element={<Poledance />} />
+  <Route path="/modern-dance"element={<Moderndance />} />
                   <Route
             path="/perfect"
             element={
@@ -417,7 +435,10 @@ export default function App() {
 
       {/* 🔥 FLOATING BUTTON (GLOBAL) */}
       <FloatingBuy />
-
+<>
+  <ScrollToTop />
+  {/* your routes / pages */}
+</>
     </>
   );
 }

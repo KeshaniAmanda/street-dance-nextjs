@@ -48,7 +48,6 @@ export default function TC1() {
       ? data
       : data.filter((item) => item.category === filter);
 
-  // 👉 navigation function
   const handleClick = (title) => {
     const path = title.toLowerCase().replace(/ /g, "-");
     navigate(`/portfolio/${path}`);
@@ -58,62 +57,95 @@ export default function TC1() {
     <div className="bg-white">
 
       {/* ================= HERO ================= */}
-      <section className="bg-gray-100 py-56 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between">
+      <section className="
+        bg-gray-100 
+        py-16 sm:py-28 md:py-40 lg:py-56 
+        px-4 sm:px-6 md:px-20 
+        flex flex-col md:flex-row 
+        items-center justify-between
+      ">
 
-        <div className="md:w-1/2">
-          <h1 className="text-5xl md:text-5xl font-light tracking-wide text-gray-800 text-right gap-8">
+        <div className="md:w-1/2 text-center md:text-right">
+          <h1 className="
+            text-2xl sm:text-4xl md:text-5xl 
+            font-light tracking-wide text-gray-800
+          ">
             <span className="font-semibold">THREE</span> COLUMNS
           </h1>
         </div>
 
-        <div className="md:w-1/2 mt-10 md:mt-0 flex items-center justify-end ">
+        <div className="
+          md:w-1/2 
+          mt-8 md:mt-0 
+          flex flex-col md:flex-row 
+          items-center justify-end 
+          gap-6
+        ">
 
-          <p className="text-gray-600 max-w-3xl leading-relaxed text-sm">
+          <p className="
+            text-gray-600 
+            text-xs sm:text-sm 
+            max-w-xl md:max-w-3xl 
+            leading-relaxed 
+            text-center md:text-left
+          ">
             Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-            Phasellus<br /> viverra nulla ut metus varius laoreet. Quisque rutrum.
-            Aenean imperdiet.<br /> Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi
           </p>
 
-          <div className="grid grid-cols-3 gap-4 -translate-x-8">
-            <img src={arrow1} alt="" className="w-12" />
-            <img src={arrow2} alt="" className="w-12" />
-            <img src={arrow3} alt="" className="w-12" />
+          <div className="
+            grid grid-cols-3 gap-2 sm:gap-4 
+            md:-translate-x-8
+          ">
+            <img src={arrow1} alt="" className="w-8 sm:w-12" />
+            <img src={arrow2} alt="" className="w-8 sm:w-12" />
+            <img src={arrow3} alt="" className="w-8 sm:w-12" />
 
-            <img src={arrow3} alt="" className="w-12" />
-            <img src={arrow1} alt="" className="w-12" />
-            <img src={arrow2} alt="" className="w-12" />
+            <img src={arrow3} alt="" className="w-8 sm:w-12" />
+            <img src={arrow1} alt="" className="w-8 sm:w-12" />
+            <img src={arrow2} alt="" className="w-8 sm:w-12" />
           </div>
 
         </div>
       </section>
 
       {/* ================= FILTER ================= */}
-      <div className="flex justify-center gap-10 text-xs tracking-[3px] py-10">
+      <div className="
+        flex flex-wrap justify-center 
+        gap-4 sm:gap-6 md:gap-10 
+        text-[10px] sm:text-xs 
+        tracking-[2px] sm:tracking-[3px] 
+        py-6 sm:py-10
+      ">
 
-        <button onClick={() => setFilter("All")}
-          className={`transition ${filter === "All" ? "text-[#19c2a0] font-semibold" : "hover:text-[#19c2a0]"}`}>
-          SHOW ALL
-        </button>
-
-        <button onClick={() => setFilter("Kids")}
-          className={`transition ${filter === "Kids" ? "text-[#19c2a0] font-semibold" : "hover:text-[#19c2a0]"}`}>
-          KIDS DANCE
-        </button>
-
-        <button onClick={() => setFilter("Latino")}
-          className={`transition ${filter === "Latino" ? "text-[#19c2a0] font-semibold" : "hover:text-[#19c2a0]"}`}>
-          LATINO DANCE
-        </button>
-
-        <button onClick={() => setFilter("Urban")}
-          className={`transition ${filter === "Urban" ? "text-[#19c2a0] font-semibold" : "hover:text-[#19c2a0]"}`}>
-          URBAN DANCE
-        </button>
+        {["All", "Kids", "Latino", "Urban"].map((item) => (
+          <button
+            key={item}
+            onClick={() => setFilter(item)}
+            className={`transition 
+              ${filter === item 
+                ? "text-[#19c2a0] font-semibold" 
+                : "hover:text-[#19c2a0]"
+              }`}
+          >
+            {item === "All" && "SHOW ALL"}
+            {item === "Kids" && "KIDS DANCE"}
+            {item === "Latino" && "LATINO DANCE"}
+            {item === "Urban" && "URBAN DANCE"}
+          </button>
+        ))}
 
       </div>
 
       {/* ================= GRID ================= */}
-      <div className="grid md:grid-cols-3 gap-12 max-w-7xl mx-auto px-6 py-16">
+      <div className="
+        grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+        gap-6 sm:gap-10 md:gap-12 
+        max-w-7xl mx-auto 
+        px-4 sm:px-6 
+        py-10 sm:py-16
+      ">
 
         {filteredData.map((item, index) => (
           <div
@@ -126,16 +158,30 @@ export default function TC1() {
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-[420px] object-cover group-hover:scale-110 transition duration-500"
+                className="
+                  w-full 
+                  h-[250px] sm:h-[320px] md:h-[420px] 
+                  object-cover 
+                  group-hover:scale-110 
+                  transition duration-500
+                "
               />
             </div>
 
-            <div className="mt-5">
-              <h3 className="text-[15px] font-semibold tracking-widest text-gray-800">
+            <div className="mt-4 sm:mt-5">
+              <h3 className="
+                text-xs sm:text-sm md:text-[15px] 
+                font-semibold tracking-widest text-gray-800
+              ">
                 {item.title}
               </h3>
 
-              <p className="text-sm text-gray-500 mt-1 group-hover:text-[#19c2a0] transition">
+              <p className="
+                text-xs sm:text-sm 
+                text-gray-500 mt-1 
+                group-hover:text-[#19c2a0] 
+                transition
+              ">
                 Art / {item.category} Dance
               </p>
             </div>

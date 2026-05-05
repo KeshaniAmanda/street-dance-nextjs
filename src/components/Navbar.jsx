@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import logo1 from "../assets/logo_white.png";
 import logo2 from "../assets/logo.png";
 import logo3 from "../assets/logo (1).png";
+import logo4 from "../assets/lg.png";
 import { Menu, X, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -16,7 +17,7 @@ const links = ["Home", "Pages", "Events", "Portfolio", "Blogs", "Shop", "Element
 const homeDropdown = [
   { name: "Dance Studio", path: "/dance-studio" },
   { name: "Pole Dance", path: "/pole-dance" },
-  { name: "Hip-Hop Dance", path: "/hiphop" },
+  { name: "Hip-Hop Dance", path: "/" },
   { name: "Modern Dance", path: "/modern-dance" },
   { name: "Contemporary Ballet", path: "/ballet" },
   { name: "Latino Dance", path: "/latino" },
@@ -249,16 +250,22 @@ const isHomeSubPage =
   location.pathname.startsWith("/contact") ||
   location.pathname.startsWith("/faq") ||
   location.pathname.startsWith("/coming-soon") ||
-  location.pathname.startsWith("/events")
+  location.pathname.startsWith("/events")||
   location.pathname.startsWith("/error");
   const isHomePage = location.pathname === "/";
 const isSpecialPage =
   location.pathname.startsWith("/portfolio") ||
   location.pathname.startsWith("/blog") ||
   location.pathname.startsWith("/shop") ||
-  location.pathname.startsWith("/elements"); 
+  location.pathname.startsWith("/elements");
+  const isDancePages =
+  location.pathname.startsWith("/pole-dance") ||
+  location.pathname.startsWith("/modern-dance"); 
+
 const hoverColor =
-  isHomePage
+  isDancePages
+    ? "hover:text-pink-500"
+    : isHomePage
     ? "hover:text-yellow-400"
     : "hover:text-[#19c2a0]";
   const isBlogPage = location.pathname.startsWith("/blog");
@@ -284,8 +291,12 @@ const navbarConfig = {
     underline: "bg-[#19c2a0]",
   },
   "/pole-dance": {
-    logo: logo2,
-    underline: "bg-red-500",
+    logo: logo4,
+    underline: "bg-pink-500",
+  },
+  "/modern-dance": {
+    logo: logo4,
+    underline: "bg-pink-500",
   },
   "/hiphop": {
     logo: logo3,
@@ -321,13 +332,15 @@ const current = navbarConfig[location.pathname] || {
         {/* Logo */}
       <Link to="/" className="flex items-center ml-16">
 <img
-  src={
-    isSpecialPage
-      ? logo3   // ✅ Portfolio / Blog / Shop / Elements
-      : isPagesPage || isHomeSubPage
-      ? logo1   // ✅ Other pages (white logo)
-      : current.logo // ✅ Home dynamic logo
-  }
+ src={
+  isDancePages
+    ? logo4   // 👉 lg.png (pink logo)
+    : isSpecialPage
+    ? logo3
+    : isPagesPage || isHomeSubPage
+    ? logo1
+    : current.logo
+}
   alt="logo"
   className="h-10 w-auto"
 />
@@ -351,15 +364,11 @@ const current = navbarConfig[location.pathname] || {
               >
                 <button
                   onClick={() => setActiveLink(link)}
-              className={`text-sm uppercase tracking-widest transition ${
-                isSpecialPage || isHomeSubPage
-  ? activeLink === link
-    ? "text-black"
-  : "text-black/70 hover:text-[#19c2a0]"
-  : activeLink === link
-  ? "text-white"
-  : "text-white/70 hover:text-white"
-  }`}
+            
+className={`text-sm uppercase tracking-widest transition ${
+  isSpecialPage ? "text-black" : "text-white"
+}`}
+
                 >
                   {link}
                 </button>
@@ -378,7 +387,11 @@ const current = navbarConfig[location.pathname] || {
          className={`block py-2 text-sm transition-all duration-300 transform ${
  item.name === "Hip-Hop Dance"
   ? `${
-      isHomePage ? "text-yellow-400" : "text-[#19c2a0]"
+      isDancePages
+        ? "text-pink-400"
+        : isHomePage
+        ? "text-yellow-400"
+        : "text-[#19c2a0]"
     } translate-x-2 font-semibold`
   : `text-white/70 ${hoverColor} hover:translate-x-2`
 }`}
@@ -402,9 +415,7 @@ const current = navbarConfig[location.pathname] || {
   <Link
     key={i}
     to={item.path}
-    className={`block py-2 text-sm text-white/70 transition-all duration-300 hover:translate-x-2 ${
-      isHomePage ? "hover:text-yellow-400" : "hover:text-[#19c2a0]"
-    }`}
+    className={`block py-2 text-sm text-white/70 transition-all duration-300 hover:translate-x-2 ${hoverColor}`}
   >
     {item.name}
   </Link>
@@ -491,9 +502,7 @@ const current = navbarConfig[location.pathname] || {
             <Link
   key={j}
   to={item.path}
-  className={`block py-1 text-sm text-white/70 transition-all duration-300 hover:translate-x-2 ${
-    isHomePage ? "hover:text-yellow-400" : "hover:text-[#19c2a0]"
-  }`}
+ className={`block py-1 text-sm text-white/70 ${hoverColor} transition-all duration-300 hover:translate-x-2`}
 >
   {item.name}
 </Link>
@@ -664,10 +673,11 @@ const current = navbarConfig[location.pathname] || {
 {/* Cart */}
 <div
  className={`relative cursor-pointer transition-colors duration-300 ${
- isHomeSubPage || isSpecialPage || isPagesPage
+ isDancePages
+  ? "hover:text-pink-500"
+  : isHomeSubPage || isSpecialPage || isPagesPage
   ? "hover:text-[#19c2a0]"
-  : "hover:text-yellow-400"
-}`}
+  : "hover:text-yellow-400"}`}
   onMouseEnter={() => setShowCart(true)}
 onMouseLeave={() => setShowCart(false)}
   onClick={() => navigate("/cart")}
@@ -705,7 +715,7 @@ onMouseLeave={() => setShowCart(false)}
     <Search size={20} />
   </button>
 
-  {/* Hamburger */}
+   {/* Hamburger */}
   <button
   className={`transition-colors duration-300 ${
   isHomeSubPage || isSpecialPage || isPagesPage
@@ -717,16 +727,11 @@ onMouseLeave={() => setShowCart(false)}
     <Menu size={22} />
   </button>
 
-</div>
 
-        {/* Mobile */}
-        <button
-          className="lg:hidden text-white"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+
+        
+       
+         </div>
    {/* main flex container end */}
    {/* OVERLAY */}
 <div
@@ -738,10 +743,14 @@ onMouseLeave={() => setShowCart(false)}
 
 {/* SIDEBAR */}
 <div
-  className={`fixed top-0 right-0 h-full w-[550px] bg-black z-50 p-8 transform transition-transform duration-500 ${
+  className={`fixed top-0 right-0 h-full w-[300px] bg-black z-50 p-8 transform transition-transform duration-500 ${
     open ? "translate-x-0" : "translate-x-full"
   }`}
 >
+
+ 
+
+
 
   {/* Close button */}
   <div className="flex justify-end mb-6">
@@ -849,9 +858,10 @@ onMouseLeave={() => setShowCart(false)}
     </div>
 
   </div>
+ 
 )}
-
+</div>
     </nav>
     
   );
-}                                
+}                               

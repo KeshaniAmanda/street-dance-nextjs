@@ -12,7 +12,6 @@ const ImageAudioPlayer = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
 
-  // ▶️ Play / Pause
   const togglePlay = () => {
     if (!audioRef.current) return;
 
@@ -25,19 +24,16 @@ const ImageAudioPlayer = () => {
     setIsPlaying(!isPlaying);
   };
 
-  // ⏱ Update progress
   const handleTimeUpdate = () => {
     const current = audioRef.current.currentTime;
     const total = audioRef.current.duration;
     setProgress((current / total) * 100);
   };
 
-  // ⏳ Get duration
   const handleLoaded = () => {
     setDuration(audioRef.current.duration);
   };
 
-  // 🎯 Seek
   const handleSeek = (e) => {
     const width = e.target.clientWidth;
     const clickX = e.nativeEvent.offsetX;
@@ -46,7 +42,6 @@ const ImageAudioPlayer = () => {
     audioRef.current.currentTime = (clickX / width) * duration;
   };
 
-  // ⏰ Format time
   const formatTime = (time) => {
     if (!time) return "00:00";
     const min = Math.floor(time / 60);
@@ -55,15 +50,20 @@ const ImageAudioPlayer = () => {
   };
 
   return (
-    <div className="w-full flex justify-center mt-10">
-      <div className="w-full max-w-6xl">
+    <div className="w-full flex justify-center mt-6 sm:mt-10">
+      <div className="w-full max-w-6xl px-4 sm:px-6">
 
         {/* 🖼 IMAGE */}
         <img
           src={bb5}
           alt="dance"
           onClick={togglePlay}
-          className="w-full h-[700px] object-cover cursor-pointer"
+          className="
+            w-full 
+            h-[250px] sm:h-[400px] md:h-[550px] lg:h-[700px] 
+            object-cover 
+            cursor-pointer
+          "
         />
 
         {/* 🎵 AUDIO */}
@@ -75,17 +75,24 @@ const ImageAudioPlayer = () => {
         />
 
         {/* 🎧 PLAYER BAR */}
-        <div className="bg-[#3a3a3a] text-white flex items-center px-4 py-3 gap-4">
-          <button onClick={togglePlay}>
+        <div className="
+          bg-[#3a3a3a] text-white 
+          flex items-center 
+          px-3 sm:px-4 
+          py-2 sm:py-3 
+          gap-2 sm:gap-4 
+          flex-wrap
+        ">
+          <button onClick={togglePlay} className="text-sm sm:text-base">
             {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
 
-          <span className="text-sm">
+          <span className="text-xs sm:text-sm">
             {formatTime(audioRef.current?.currentTime)}
           </span>
 
           <div
-            className="flex-1 h-1 bg-gray-500 cursor-pointer relative"
+            className="flex-1 h-1 bg-gray-500 cursor-pointer relative min-w-[100px]"
             onClick={handleSeek}
           >
             <div
@@ -94,18 +101,23 @@ const ImageAudioPlayer = () => {
             ></div>
           </div>
 
-          <span className="text-sm">
+          <span className="text-xs sm:text-sm">
             {formatTime(duration)}
           </span>
 
-          <FaVolumeUp />
+          <FaVolumeUp className="text-sm sm:text-base" />
         </div>
 
-        {/* 🔽 BLOG DETAILS SECTION */}
-        <div className="mt-10 px-2">
+        {/* 🔽 BLOG DETAILS */}
+        <div className="mt-6 sm:mt-10 px-1 sm:px-2">
 
           {/* Meta */}
-          <div className="text-sm text-gray-500 flex flex-wrap items-center gap-2 mb-4">
+          <div className="
+            text-xs sm:text-sm 
+            text-gray-500 
+            flex flex-wrap items-center gap-2 
+            mb-3 sm:mb-4
+          ">
             <span className="hover:text-[#19c2a0] cursor-pointer">
               May 16, 2016
             </span>
@@ -130,16 +142,27 @@ const ImageAudioPlayer = () => {
             </span>
           </div>
 
-          
           {/* TITLE */}
-        <Link to="/blog-details">
-  <h2 className="text-2xl font-semibold mt-4 tracking-wide text-black hover:text-[#19c2a0] transition duration-300 cursor-pointer">
-      AWESOME SILHOUETTE
-  </h2>
-</Link>
+          <Link to="/blog-details">
+            <h2 className="
+              text-lg sm:text-xl md:text-2xl 
+              font-semibold mt-3 sm:mt-4 
+              tracking-wide 
+              hover:text-[#19c2a0] 
+              transition duration-300
+            ">
+              AWESOME SILHOUETTE
+            </h2>
+          </Link>
 
           {/* Text */}
-          <p className="text-gray-500 leading-7 mb-6">
+          <p className="
+            text-gray-500 
+            text-sm sm:text-base 
+            leading-6 sm:leading-7 
+            mt-3 sm:mt-4 
+            mb-5 sm:mb-6
+          ">
             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
             Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
             aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
@@ -149,9 +172,16 @@ const ImageAudioPlayer = () => {
           </p>
 
           {/* READ MORE */}
-                  <Link
+          <Link
             to="/blog-details"
-            className="mt-6 inline-flex items-center gap-2 text-[#19c2a0] font-semibold hover:text-black hover:gap-3 transition-all duration-300"
+            className="
+              mt-4 sm:mt-6 
+              inline-flex items-center gap-2 
+              text-[#19c2a0] font-semibold 
+              text-sm sm:text-base
+              hover:text-black hover:gap-3 
+              transition-all duration-300
+            "
           >
             → READ MORE
           </Link>
