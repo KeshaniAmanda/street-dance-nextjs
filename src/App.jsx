@@ -27,6 +27,14 @@ import DanceStudio6 from "./components/DanceStudio6";
 import DanceStudio7 from "./components/DanceStudio7";
 import DanceStudio8 from "./components/DanceStudio8";
 import Poledance from "./components/Poledance";
+import Poledance1 from "./components/Poledance1";
+import Poledance2 from "./components/Poledance2";
+import Poledance3 from "./components/Poledance3";
+import Poledance4 from "./components/Poledance4";
+import Poledance5 from "./components/Poledance5";
+import Poledance6 from "./components/Poledance6";
+import Poledance7 from "./components/Poledance7";
+import Poledance8 from "./components/Poledance8";
 import Moderndance from "./components/Moderndance";
 // SingUP PAGES
 import SignUp from "./components/SignUp";
@@ -415,7 +423,26 @@ export default function App() {
               </>
             }
           />
- <Route path="/pole-dance"element={<Poledance />} />
+          <Route
+            path="/pole-dance"
+            element={
+              <>
+                <Poledance />
+                <Poledance1 />
+                 <Poledance2 />
+                 <Poledance3 />
+                  <Poledance4 />
+             <Poledance5 />
+              <Poledance6 />
+               <Poledance7 />
+                <Poledance8 />
+             
+            
+                
+              </>
+            }
+          />
+ 
   <Route path="/modern-dance"element={<Moderndance />} />
                   <Route
             path="/perfect"

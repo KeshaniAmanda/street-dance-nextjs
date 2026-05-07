@@ -15,11 +15,11 @@ import h9j from "../assets/h9j.png";
 
 const Hero9 = () => {
 
-  // 🔥 Scroll to top function
+  // 🔥 Scroll to top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // smooth scroll
+      behavior: "smooth",
     });
   };
 
@@ -36,14 +36,19 @@ const Hero9 = () => {
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 items-center">
 
+          {/* TITLE */}
           <h2 className="text-black text-2xl md:text-4xl font-light uppercase leading-tight text-right">
-            MEETING OUR AMAZING <br />
-            <span className="font-semibold">DANCE TEACHERS</span>
+            <span className="font-semibold">MEETING OUR</span> AMAZING <br />
+            DANCE <span className="font-semibold">TEACHERS</span>
           </h2>
 
+          {/* TEXT */}
           <p className="text-gray-500 text-base leading-relaxed max-w-md">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            nean commodo ligula eget dolor. Aenean massa. Cum
+            sociis Theme natoque penatibus et magnis dis
           </p>
+
         </div>
       </div>
 
@@ -59,45 +64,96 @@ const Hero9 = () => {
 
           <div key={index} className="relative overflow-hidden group">
 
+            {/* IMAGE */}
             <img
               src={item.img}
               alt=""
-              className={`w-full h-[300px] md:h-[420px] object-cover
-                grayscale group-hover:grayscale-0
+              className={`
+                w-full h-[300px] md:h-[420px] object-cover
+                grayscale
+                group-hover:grayscale-0
                 group-hover:scale-110
-                ${item.dir === "right" ? "group-hover:translate-x-4" : "group-hover:-translate-x-4"}
-                transition duration-500`}
+                ${
+                  item.dir === "right"
+                    ? "group-hover:translate-x-4"
+                    : "group-hover:-translate-x-4"
+                }
+                transition duration-700
+              `}
             />
 
-            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col items-center justify-center text-white">
+            {/* DARK OVERLAY */}
+            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-              <h3 className="text-2xl md:text-3xl font-semibold">
+            {/* CONTENT */}
+            <div
+              className="
+                absolute inset-0
+                flex flex-col items-center justify-center
+                text-white text-center
+
+                translate-y-20 opacity-0
+                group-hover:translate-y-0
+                group-hover:opacity-100
+
+                transition-all duration-700 ease-out
+              "
+            >
+
+              {/* NAME */}
+              <h3 className="text-2xl md:text-3xl font-semibold mb-2">
                 {item.name}
               </h3>
 
-              <p className="text-sm text-gray-300 mb-3">
+              {/* ROLE */}
+              <p className="text-sm text-gray-300 mb-5 tracking-widest uppercase">
                 {item.role}
               </p>
 
+              {/* SOCIAL ICONS */}
               <div className="flex gap-4 text-lg">
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition duration-300"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
+
+                <a
+                  href="https://x.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition duration-300"
+                >
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition duration-300"
+                >
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.tumblr.com/" target="_blank" rel="noopener noreferrer">
+
+                <a
+                  href="https://www.tumblr.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition duration-300"
+                >
                   <i className="fab fa-tumblr"></i>
                 </a>
+
               </div>
 
             </div>
 
           </div>
-
         ))}
 
       </div>
@@ -107,19 +163,32 @@ const Hero9 = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
 
           {[h9f, h9g, h9h, h9i, h9j].map((logo, index) => (
-            <div key={index} className="flex justify-center">
+
+            <div
+              key={index}
+              className="flex justify-center overflow-hidden group"
+            >
 
               <img
                 src={logo}
                 alt="logo"
-                onClick={scrollToTop}   // 👈 click event
-                className="h-16 md:h-24 object-contain
-                           invert opacity-80
-                           hover:invert-0 hover:brightness-0 hover:opacity-100
-                           transition duration-300 cursor-pointer"
+                onClick={scrollToTop}
+               className="
+  h-16 md:h-24 object-contain
+  invert opacity-80
+  cursor-pointer
+
+  transition-all duration-500 ease-out
+
+  group-hover:-translate-x-5
+  group-hover:opacity-100
+  group-hover:invert-0
+  group-hover:brightness-0
+"
               />
 
             </div>
+
           ))}
 
         </div>

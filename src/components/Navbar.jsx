@@ -683,14 +683,16 @@ onMouseLeave={() => setShowCart(false)}
   onClick={() => navigate("/cart")}
 >
   <ShoppingBag size={20} />
-
-  {/* Count */}
-  <span
+  
+{/* Count */}
+<span
   className={`absolute -top-2 -right-2 text-xs px-1.5 rounded-full ${
-  isHomeSubPage || isSpecialPage || isPagesPage
-    ? "bg-[#19c2a0] text-white"
-    : "bg-yellow-400 text-black"
-}`}
+    isDancePages
+      ? "bg-pink-500 text-white"
+      : isHomeSubPage || isSpecialPage || isPagesPage
+      ? "bg-[#19c2a0] text-white"
+      : "bg-yellow-400 text-black"
+  }`}
 >
   0
 </span>

@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
   const [showBtn, setShowBtn] = useState(false);
   const [clicked, setClicked] = useState(false);
+
+  const location = useLocation();
+
+  // ✅ Page checks
+  const isHomePage = location.pathname === "/";
+
+  const isPinkPage =
+    location.pathname === "/pole-dance" ||
+    location.pathname === "/modern-dance";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -10,7 +20,10 @@ const ScrollToTop = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollUp = () => {
@@ -32,45 +45,54 @@ const ScrollToTop = () => {
         <button
           onClick={scrollUp}
           className="
-            fixed 
-            bottom-4 right-4 
-            sm:bottom-6 sm:right-6 
-            w-10 h-10 sm:w-12 sm:h-12 
-            flex items-center justify-center 
-            z-50 
-            transition transform hover:scale-110
+            fixed
+            bottom-4 right-4
+            sm:bottom-6 sm:right-6
+            z-50
+            transition-transform duration-300
+            hover:scale-110
           "
         >
-          {/* DEFAULT TRIANGLE */}
-          {!clicked ? (
-            <div className="
-              w-0 h-0 
-              border-l-[12px] border-r-[12px] border-b-[20px] 
-              sm:border-l-[16px] sm:border-r-[16px] sm:border-b-[28px]
-              border-l-transparent border-r-transparent 
-              border-b-[#19c2a0]
-            " />
-          ) : (
-            /* CLICKED STYLE */
-            <div className="
-              relative w-0 h-0 
-              border-l-[12px] border-r-[12px] border-b-[20px]
-              sm:border-l-[16px] sm:border-r-[16px] sm:border-b-[28px]
-              border-l-transparent border-r-transparent 
-              border-b-[#19c2a0]
-            ">
-              <div className="
-                absolute 
-                left-[-6px] top-[5px] 
-                sm:left-[-8px] sm:top-[6px]
-                w-0 h-0 
-                border-l-[6px] border-r-[6px] border-b-[10px]
-                sm:border-l-[8px] sm:border-r-[8px] sm:border-b-[14px]
-                border-l-transparent border-r-transparent 
-                border-b-white
-              "></div>
-            </div>
-          )}
+          <div className="relative w-[32px] h-[32px] sm:w-[42px] sm:h-[42px]">
+
+            {/* MAIN TRIANGLE */}
+            <div
+              className={`
+                absolute bottom-0 left-1/2 -translate-x-1/2
+                w-0 h-0
+                border-l-[16px] border-r-[16px] border-b-[28px]
+                sm:border-l-[20px] sm:border-r-[20px] sm:border-b-[36px]
+                border-l-transparent border-r-transparent
+
+                ${
+                  isHomePage
+                    ? "border-b-yellow-400"
+                    : isPinkPage
+                    ? "border-b-pink-500"
+                    : "border-b-[#19c2a0]"
+                }
+              `}
+            />
+
+            {/* WHITE INNER TRIANGLE */}
+            {clicked && (
+              <div
+                className="
+                  absolute
+                  bottom-[6px]
+                  sm:bottom-[8px]
+                  left-1/2
+                  -translate-x-1/2
+                  w-0 h-0
+                  border-l-[8px] border-r-[8px] border-b-[14px]
+                  sm:border-l-[10px] sm:border-r-[10px] sm:border-b-[18px]
+                  border-l-transparent border-r-transparent
+                  border-b-white
+                "
+              />
+            )}
+
+          </div>
         </button>
       )}
     </>

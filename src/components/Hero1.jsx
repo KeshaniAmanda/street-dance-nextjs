@@ -31,9 +31,9 @@ export default function DanceSection() {
             className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
           />
 
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/20 "></div>
 
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div className="absolute inset-0 bg-[#0f2e2e]/70 opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
           <div
             className="absolute inset-0 flex flex-col justify-center px-8 text-white
@@ -96,7 +96,7 @@ export default function DanceSection() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/75"></div>
+        <div className="absolute inset-0 "></div>
 
         <div className="relative z-10 text-white px-4">
           <p className="italic text-lg md:text-xl mb-2">
