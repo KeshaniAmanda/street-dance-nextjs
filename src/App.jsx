@@ -17,6 +17,7 @@ import Hero7 from "./components/Hero7";
 import Hero8 from "./components/Hero8";
 import Hero9 from "./components/Hero9";
 import Hero10 from "./components/Hero10";
+
 import DanceStudio from "./components/DanceStudio";
 import DanceStudio1 from "./components/DanceStudio1";
 import DanceStudio2 from "./components/DanceStudio2";
@@ -26,6 +27,7 @@ import DanceStudio5 from "./components/DanceStudio5";
 import DanceStudio6 from "./components/DanceStudio6";
 import DanceStudio7 from "./components/DanceStudio7";
 import DanceStudio8 from "./components/DanceStudio8";
+
 import Poledance from "./components/Poledance";
 import Poledance1 from "./components/Poledance1";
 import Poledance2 from "./components/Poledance2";
@@ -35,7 +37,28 @@ import Poledance5 from "./components/Poledance5";
 import Poledance6 from "./components/Poledance6";
 import Poledance7 from "./components/Poledance7";
 import Poledance8 from "./components/Poledance8";
+
 import Moderndance from "./components/Moderndance";
+import Moderndance2 from "./components/Moderndance2";
+import Moderndance3 from "./components/Moderndance3";
+import Moderndance4 from "./components/Moderndance4";
+import Moderndance5 from "./components/Moderndance5";
+import Moderndance6 from "./components/Moderndance6";
+import Moderndance7 from "./components/Moderndance7";
+import Moderndance8 from "./components/Moderndance8";
+import Moderndance1 from "./components/Moderndance1";
+
+import Weare from "./components/Weare";
+import Weare2 from "./components/Weare2";
+import Weare3 from "./components/Weare3";
+import Weare4 from "./components/Weare4";
+import Weare1 from "./components/Weare1";
+
+import Instructors1 from "./components/Instructors1";
+import Instructors2 from "./components/Instructors2";
+
+import Swanlake1 from "./components/Swanlake1";
+import Swanlake2 from "./components/Swanlake2";
 // SingUP PAGES
 import SignUp from "./components/SignUp";
 import SignUp1 from "./components/SignUp1";
@@ -57,23 +80,33 @@ import TheDance1 from "./components/TheDance1";
 
 import Graffiti from "./components/Graffiti";
 import Graffiti1 from "./components/Graffiti1";
+
 import About from "./components/About";
 import About1 from "./components/About1";
 import About2 from "./components/About2";
 import About3 from "./components/About3";
+
 import Events from "./components/Events";
 import Events1 from "./components/Events1";
+
+import Timetable1 from "./components/Timetable1";
+import Timetable2 from "./components/Timetable2";
+
 import Tc1 from "./components/Tc1";
 import Tc2 from "./components/Tc2";
 
 import InspirationalMove from "./components/InspirationalMove";
 import InspirationalMove1 from "./components/InspirationalMove1";
+
 import GroupDance from "./components/GroupDance";
 import GroupDance1 from "./components/GroupDance1";
+
 import DanceAct from "./components/DanceAct";
 import DanceAct1 from "./components/DanceAct1";
+
 import BalletsFinest from "./components/BalletsFinest";
 import BalletsFinest1 from "./components/BalletsFinest1";
+
 import GroupMove from "./components/GroupMove";
 import Wanderlust from "./components/Wanderlust";
 import MoonDance from "./components/MoonDance";
@@ -98,9 +131,11 @@ import Organized from "./components/Organized";
 import Attitude from "./components/Attitude";
 import Neon from "./components/Neon";
 import Music from "./components/Music";
+
 import Blog from "./components/Blog";
 import Blog1 from "./components/Blog1";
 import Blog2 from "./components/Blog2";
+
 import March from "./components/March";
 import Admin from "./components/Admin";
 import May from "./components/May";
@@ -109,9 +144,11 @@ import Walk from "./components/Walk";
 import Game from "./components/Game";
 
 import September from "./components/September";
+
 import Perfect from "./components/Perfect";
 import Perfect1 from "./components/Perfect1";
 import Perfect2 from "./components/Perfect2";
+
 import Heart from "./components/Heart";
 import Classic from "./components/Classic";
 
@@ -160,7 +197,6 @@ function Home() {
   );
 }
 
-
 export default function App() {
   return (
     <>
@@ -183,6 +219,7 @@ export default function App() {
               </>
             }
           />
+
            {/* AboutUs PAGES */}
          <Route
             path="/aboutus"
@@ -276,6 +313,18 @@ export default function App() {
               <>
                 <Events />
                 <Events1 />
+               
+                
+              </>
+            }
+          />
+
+          <Route
+            path="/timetable"
+            element={
+              <>
+                <Timetable1 />
+                <Timetable2/>
                
                 
               </>
@@ -442,8 +491,26 @@ export default function App() {
               </>
             }
           />
+           <Route
+            path="/modern-dance"
+            element={
+              <>
+                <Moderndance />
+                <Moderndance2 />
+                 <Moderndance3 />
+                  <Moderndance4 />
+                  <Moderndance5 />
+                  <Moderndance6 />
+                  <Moderndance7 />
+                  <Moderndance8 />
+                 <Moderndance1 />
+                 
+                
+              </>
+            }
+          />
  
-  <Route path="/modern-dance"element={<Moderndance />} />
+
                   <Route
             path="/perfect"
             element={
@@ -452,6 +519,40 @@ export default function App() {
                 <Perfect1 />
                  <Perfect2 />
                 
+              </>
+            }
+          />
+           <Route
+            path="/who-we-are"
+            element={
+              <>
+                <Weare />
+                <Weare2 />
+                <Weare3 />
+                <Weare4 />
+                <Weare1 />
+                 
+                
+              </>
+            }
+          />
+
+          <Route
+            path="/instructors"
+            element={
+              <>
+                <Instructors1 />
+                <Instructors2 />
+              </>
+            }
+          />
+
+             <Route
+            path="/swan-lake"
+            element={
+              <>
+                <Swanlake1 />
+                <Swanlake2 />
               </>
             }
           />

@@ -251,6 +251,7 @@ const isHomeSubPage =
   location.pathname.startsWith("/faq") ||
   location.pathname.startsWith("/coming-soon") ||
   location.pathname.startsWith("/events")||
+  location.pathname.startsWith("/timetable") ||
   location.pathname.startsWith("/error");
   const isHomePage = location.pathname === "/";
 const isSpecialPage =
@@ -272,14 +273,25 @@ const hoverColor =
 useEffect(() => {
   if (location.pathname.startsWith("/portfolio")) {
     setActiveLink("Portfolio");
-  } else if (location.pathname.startsWith("/events")) {
+
+  } else if (
+    location.pathname.startsWith("/events") ||
+    location.pathname.startsWith("/timetable")
+  ) {
     setActiveLink("Events");
-  } else if (location.pathname.startsWith("/about") || location.pathname.startsWith("/who")) {
+
+  } else if (
+    location.pathname.startsWith("/about") ||
+    location.pathname.startsWith("/who")
+  ) {
     setActiveLink("Pages");
+
   } else if (location.pathname.startsWith("/blog")) {
     setActiveLink("Blogs");
+
   } else if (location.pathname.startsWith("/shop")) {
     setActiveLink("Shop");
+
   } else {
     setActiveLink("Home");
   }
