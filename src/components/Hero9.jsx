@@ -1,21 +1,43 @@
 import React from "react";
-
-import h9a from "../assets/h9a.jpg";
-import h9b from "../assets/h9b.jpg";
-import h9c from "../assets/h9c.jpg";
-import h9d from "../assets/h9d.jpg";
-import h9e from "../assets/h9e.jpg";
-
-// BRAND LOGOS
-import h9f from "../assets/h9f.png";
-import h9g from "../assets/h9g.png";
-import h9h from "../assets/h9h.png";
-import h9i from "../assets/h9i.png";
-import h9j from "../assets/h9j.png";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaSpotify,
+} from "react-icons/fa";
 
 const Hero9 = () => {
+  const teachers = [
+    {
+      img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1200&auto=format&fit=crop",
+      name: "ALEX CARTER",
+      role: "Hip Hop Coach",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop",
+      name: "MIA RAY",
+      role: "Urban Choreographer",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1200&auto=format&fit=crop",
+      name: "JAYDEN COLE",
+      role: "Freestyle Dancer",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop",
+      name: "SOPHIA KING",
+      role: "Street Performer",
+    },
+  ];
 
-  // 🔥 Scroll to top
+  const brands = [
+    "NIKE",
+    "ADIDAS",
+    "RED BULL",
+    "PUMA",
+    "URBAN",
+  ];
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -24,176 +46,179 @@ const Hero9 = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#070707] overflow-hidden relative">
 
-      {/* ================= TOP SECTION ================= */}
-      <div
-        className="w-full py-28 px-4 md:px-16 bg-cover relative"
-        style={{
-          backgroundImage: `url(${h9a})`,
-          backgroundPosition: "20% center",
-        }}
-      >
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 items-center">
+      {/* BG GLOW */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#ffb347]/10 blur-3xl rounded-full"></div>
 
-          {/* TITLE */}
-          <h2 className="text-black text-2xl md:text-4xl font-light uppercase leading-tight text-right">
-            <span className="font-semibold">MEETING OUR</span> AMAZING <br />
-            DANCE <span className="font-semibold">TEACHERS</span>
+      {/* TOP SECTION */}
+      <div className="relative z-10 py-8 sm:py-10 px-6 md:px-14 border-b border-white/10">
+
+        <div className="max-w-6xl mx-auto text-center">
+
+          <p className="uppercase tracking-[0.35em] text-[#ffb347] text-[10px] sm:text-xs mb-4 animate-subtitle">
+            Professional Team
+          </p>
+
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extralight uppercase leading-[1.1] tracking-[0.08em] animate-title">
+            Meet Our <span className="font-semibold">Dance Masters</span>
           </h2>
 
-          {/* TEXT */}
-          <p className="text-gray-500 text-base leading-relaxed max-w-md">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-            nean commodo ligula eget dolor. Aenean massa. Cum
-            sociis Theme natoque penatibus et magnis dis
-          </p>
+          <div className="w-20 h-[2px] bg-[#ffb347] mx-auto mt-6 animate-line"></div>
 
         </div>
       </div>
 
-      {/* ================= IMAGE GRID ================= */}
-      <div className="grid grid-cols-2 md:grid-cols-4">
+      {/* TEACHERS GRID */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 
-        {[
-          { img: h9b, name: "DAVID HARRISON", role: "Dancer", dir: "right" },
-          { img: h9c, name: "MELANI GRIFIT", role: "Choreographer", dir: "left" },
-          { img: h9d, name: "ANTONIO JOHNSON", role: "Choreographer", dir: "right" },
-          { img: h9e, name: "JESSICA JUNG", role: "Dancer", dir: "left" },
-        ].map((item, index) => (
-
-          <div key={index} className="relative overflow-hidden group">
+        {teachers.map((item, index) => (
+          <div
+            key={index}
+            className="relative h-[320px] overflow-hidden group"
+          >
 
             {/* IMAGE */}
             <img
               src={item.img}
-              alt=""
-              className={`
-                w-full h-[300px] md:h-[420px] object-cover
-                grayscale
-                group-hover:grayscale-0
-                group-hover:scale-110
-                ${
-                  item.dir === "right"
-                    ? "group-hover:translate-x-4"
-                    : "group-hover:-translate-x-4"
-                }
-                transition duration-700
-              `}
+              alt={item.name}
+              className="w-full h-full object-cover group-hover:scale-110 transition duration-[2000ms]"
             />
 
-            {/* DARK OVERLAY */}
-            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            {/* OVERLAY */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+
+            {/* GLOW */}
+            <div className="absolute inset-0 bg-[#ffb347]/20 opacity-0 group-hover:opacity-100 transition duration-700"></div>
 
             {/* CONTENT */}
-            <div
-              className="
-                absolute inset-0
-                flex flex-col items-center justify-center
-                text-white text-center
+            <div className="absolute bottom-0 left-0 w-full p-6 text-white z-20">
 
-                translate-y-20 opacity-0
-                group-hover:translate-y-0
-                group-hover:opacity-100
-
-                transition-all duration-700 ease-out
-              "
-            >
-
-              {/* NAME */}
-              <h3 className="text-2xl md:text-3xl font-semibold mb-2">
-                {item.name}
-              </h3>
-
-              {/* ROLE */}
-              <p className="text-sm text-gray-300 mb-5 tracking-widest uppercase">
+              <p className="uppercase tracking-[0.3em] text-[#ffb347] text-[10px] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-500">
                 {item.role}
               </p>
 
-              {/* SOCIAL ICONS */}
-              <div className="flex gap-4 text-lg">
+              <h3 className="text-xl sm:text-2xl font-light uppercase tracking-[0.08em] mb-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-700">
+                {item.name}
+              </h3>
+
+              {/* SOCIALS */}
+              <div className="flex gap-3 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-1000">
 
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-yellow-400 transition duration-300"
+                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#ffb347] hover:text-black transition duration-300"
                 >
-                  <i className="fab fa-instagram"></i>
-                </a>
-
-                <a
-                  href="https://x.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-yellow-400 transition duration-300"
-                >
-                  <i className="fab fa-twitter"></i>
+                  <FaInstagram />
                 </a>
 
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-yellow-400 transition duration-300"
+                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#ffb347] hover:text-black transition duration-300"
                 >
-                  <i className="fab fa-facebook-f"></i>
+                  <FaFacebookF />
                 </a>
 
                 <a
-                  href="https://www.tumblr.com/"
+                  href="https://www.youtube.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-yellow-400 transition duration-300"
+                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#ffb347] hover:text-black transition duration-300"
                 >
-                  <i className="fab fa-tumblr"></i>
+                  <FaYoutube />
+                </a>
+
+                <a
+                  href="https://open.spotify.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#ffb347] hover:text-black transition duration-300"
+                >
+                  <FaSpotify />
                 </a>
 
               </div>
-
             </div>
-
           </div>
         ))}
-
       </div>
 
-      {/* ================= YELLOW BRAND SECTION ================= */}
-      <div className="w-full bg-yellow-500 py-20 px-6 md:px-20">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+      {/* BRAND SECTION */}
+      <div className="relative z-10 py-10 px-6 md:px-14 border-t border-white/10 bg-[#0b0b0b]">
 
-          {[h9f, h9g, h9h, h9i, h9j].map((logo, index) => (
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-5">
 
+          {brands.map((brand, index) => (
             <div
               key={index}
-              className="flex justify-center overflow-hidden group"
+              onClick={scrollToTop}
+              className="group cursor-pointer flex items-center justify-center h-20 border border-white/10 bg-white/[0.02] hover:bg-[#ffb347] transition duration-500 overflow-hidden relative"
             >
 
-              <img
-                src={logo}
-                alt="logo"
-                onClick={scrollToTop}
-               className="
-  h-16 md:h-24 object-contain
-  invert opacity-80
-  cursor-pointer
+              {/* GLOW */}
+              <div className="absolute inset-0 bg-[#ffb347]/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
 
-  transition-all duration-500 ease-out
-
-  group-hover:-translate-x-5
-  group-hover:opacity-100
-  group-hover:invert-0
-  group-hover:brightness-0
-"
-              />
-
+              <h3 className="relative z-10 text-white text-sm sm:text-lg font-black tracking-[0.25em] group-hover:text-black transition duration-500">
+                {brand}
+              </h3>
             </div>
-
           ))}
-
         </div>
       </div>
 
+      {/* ANIMATIONS */}
+      <style jsx>{`
+        @keyframes subtitleFade {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+            letter-spacing: 0.5em;
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+            letter-spacing: 0.35em;
+          }
+        }
+
+        @keyframes titleReveal {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes lineGrow {
+          from {
+            width: 0;
+            opacity: 0;
+          }
+          to {
+            width: 5rem;
+            opacity: 1;
+          }
+        }
+
+        .animate-subtitle {
+          animation: subtitleFade 1s ease forwards;
+        }
+
+        .animate-title {
+          animation: titleReveal 1.2s ease forwards;
+        }
+
+        .animate-line {
+          animation: lineGrow 1.3s ease forwards;
+        }
+      `}</style>
     </section>
   );
 };

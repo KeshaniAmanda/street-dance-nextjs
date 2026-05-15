@@ -1,72 +1,253 @@
 import React from "react";
+import {
+  Instagram,
+  Facebook,
+  Twitter,
+  ArrowRight,
+  Sparkles,
+  Trophy,
+  Star,
+} from "lucide-react";
 
-import arrow1 from "../assets/arrow-img-1.png";
-import arrow2 from "../assets/arrow-img-2.png";
-import arrow3 from "../assets/arrow-img-3.png";
-import arrow4 from "../assets/arrow-img-1.png";
-import arrow5 from "../assets/arrow-img-2.png";
-import arrow6 from "../assets/arrow-img-3.png";
+const Team = () => {
+  const teamMembers = [
+    {
+      name: "ALEX RAY",
+      role: "Hip Hop Instructor",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop",
+    },
+    {
+      name: "SOPHIA JAMES",
+      role: "Contemporary Coach",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop",
+    },
+    {
+      name: "MICHAEL LEE",
+      role: "Breakdance Trainer",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop",
+    },
+    {
+      name: "EMMA WILSON",
+      role: "Ballet Instructor",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1974&auto=format&fit=crop",
+    },
+  ];
 
-import wa from "../assets/wa.jpg";
+  const achievements = [
+    {
+      icon: <Trophy size={40} />,
+      title: "120+ Championships",
+      text: "Award-winning dancers trained by experienced professionals.",
+    },
+    {
+      icon: <Sparkles size={40} />,
+      title: "Creative Choreography",
+      text: "Unique dance styles designed for every performance level.",
+    },
+    {
+      icon: <Star size={40} />,
+      title: "Professional Mentors",
+      text: "Friendly mentors helping students become confident performers.",
+    },
+  ];
 
-export default function AboutUsHero() {
   return (
-    <section className="relative w-full h-[500px] overflow-hidden">
-      
-      {/* BG */}
-      <img
-        src={wa}
-        alt="about"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <div className="w-full overflow-hidden bg-black text-white">
+      {/* HERO SECTION */}
+      <section
+        className="relative h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070&auto=format&fit=crop')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70"></div>
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 "></div>
+        {/* COLOR GLOWS */}
+        <div className="absolute top-10 left-10 w-72 h-72 bg-pink-500/30 blur-3xl rounded-full animate-pulse"></div>
 
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-[1400px] mx-auto h-full flex items-center px-12">
-        
-        {/* LEFT SIDE */}
-        <div className="w-1/2 flex items-center gap-8">
-          
-          {/* ARROWS */}
-          <div className="flex flex-col gap-6">
-            
-            {/* TOP */}
-            <div className="flex items-center gap-4">
-              <img src={arrow1} alt="" className="w-[60px]" />
-              <img src={arrow2} alt="" className="w-[60px]" />
-              <img src={arrow3} alt="" className="w-[60px]" />
-            </div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-cyan-500/30 blur-3xl rounded-full animate-pulse"></div>
 
-            {/* BOTTOM */}
-            <div className="flex items-center gap-4">
-              <img src={arrow4} alt="" className="w-[60px]" />
-              <img src={arrow5} alt="" className="w-[60px]" />
-              <img src={arrow6} alt="" className="w-[60px]" />
-            </div>
+        <div className="relative z-10 text-center px-6">
+          <p className="uppercase tracking-[6px] text-pink-400 mb-5 text-sm">
+            Meet Our Team
+          </p>
 
+          <h1 className="text-5xl md:text-7xl font-black leading-tight max-w-5xl mx-auto">
+            PROFESSIONAL
+            <span className="block text-cyan-400">
+              DANCE INSTRUCTORS
+            </span>
+          </h1>
+
+          <p className="mt-8 text-gray-300 max-w-2xl mx-auto leading-8">
+            Passionate trainers, creative choreographers, and performance
+            experts dedicated to helping every dancer grow with confidence.
+          </p>
+
+          <button className="mt-10 px-10 py-4 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full font-bold flex items-center gap-3 mx-auto hover:scale-105 duration-300">
+            Explore Team
+            <ArrowRight size={20} />
+          </button>
+        </div>
+      </section>
+
+      {/* TEAM CARDS */}
+      <section className="py-24 bg-[#0f0f0f]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <p className="uppercase tracking-[5px] text-cyan-400 mb-4">
+              Our Experts
+            </p>
+
+            <h2 className="text-4xl md:text-6xl font-black">
+              THE CREATIVE
+              <span className="text-pink-500"> CREW</span>
+            </h2>
           </div>
 
-          {/* PARAGRAPH */}
-<p className="text-white text-[15px] leading-[2] w-[500px] font-light translate-x-20 text-right whitespace-nowrap">
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo<br />
-  ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et<br />
-  magnis dis parturient montes,nascetur ridiculus mus.
-</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-[35px] bg-black border border-white/10 hover:border-pink-500 duration-500"
+              >
+                {/* IMAGE */}
+                <div className="overflow-hidden h-[450px]">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-110 duration-700"
+                  />
+                </div>
+
+                {/* OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+
+                {/* CONTENT */}
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <p className="text-cyan-400 text-sm tracking-[3px] uppercase">
+                    {member.role}
+                  </p>
+
+                  <h3 className="text-2xl font-black mt-2">
+                    {member.name}
+                  </h3>
+
+                  {/* SOCIALS */}
+                  <div className="flex gap-3 mt-5">
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-pink-500 duration-300 cursor-pointer">
+                      <Instagram size={18} />
+                    </div>
+
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-cyan-500 duration-300 cursor-pointer">
+                      <Facebook size={18} />
+                    </div>
+
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-pink-500 duration-300 cursor-pointer">
+                      <Twitter size={18} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* RIGHT SIDE */}
-{/* RIGHT SIDE */}
-<div className="w-[70%] flex justify-center">
-  <h1 className="text-white uppercase leading-[0.95] font-extralight text-[50px] max-w-[900px]">
-  <span className="font-semibold">About Us</span> And Dance.
-  <br />
-  Get To <span className="font-semibold">Know Us.</span>
-</h1>
+      {/* ACHIEVEMENTS */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        {/* BACKGROUND LIGHTS */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-cyan-500/20 blur-3xl rounded-full"></div>
 
-</div>
-      </div>
-    </section>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-500/20 blur-3xl rounded-full"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid md:grid-cols-3 gap-8">
+            {achievements.map((item, index) => (
+              <div
+                key={index}
+                className="bg-[#111111] border border-white/10 rounded-[35px] p-10 hover:-translate-y-3 duration-500 hover:border-cyan-400"
+              >
+                <div className="text-pink-500 mb-6">
+                  {item.icon}
+                </div>
+
+                <h3 className="text-3xl font-black mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-400 leading-8">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LARGE IMAGE SECTION */}
+      <section
+        className="relative h-[70vh] bg-cover bg-center flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=2070&auto=format&fit=crop')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="relative z-10 text-center px-6">
+          <p className="uppercase tracking-[5px] text-cyan-400 mb-5">
+            Dance Together
+          </p>
+
+          <h2 className="text-4xl md:text-6xl font-black leading-tight max-w-4xl">
+            WE TURN PASSION
+            <span className="text-pink-500 block">
+              INTO PERFORMANCE
+            </span>
+          </h2>
+
+          <button className="mt-10 px-10 py-4 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-full font-bold hover:scale-105 duration-300">
+            Join Our Team
+          </button>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-[#0f0f0f] text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-pink-500/20 blur-3xl rounded-full"></div>
+
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-500/20 blur-3xl rounded-full"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <p className="uppercase tracking-[5px] text-pink-400 mb-4">
+            Start Dancing
+          </p>
+
+          <h2 className="text-4xl md:text-6xl font-black leading-tight">
+            JOIN OUR CREATIVE
+            <span className="text-cyan-400 block">
+              DANCE FAMILY
+            </span>
+          </h2>
+
+          <p className="mt-8 text-gray-300 leading-8">
+            Learn from professionals, perform on stage, and build confidence
+            through movement, creativity, and teamwork.
+          </p>
+
+          <button className="mt-10 px-10 py-4 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full font-bold hover:scale-105 duration-300">
+            Get Started
+          </button>
+        </div>
+      </section>
+    </div>
   );
-}
+};
+
+export default Team;
