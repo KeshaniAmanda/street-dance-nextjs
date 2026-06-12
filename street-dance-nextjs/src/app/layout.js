@@ -20,6 +20,8 @@ export default function RootLayout({ children }) {
             <a href="/portfolio" className="hover:text-yellow-400 transition">Portfolio</a>
             <a href="/blogs" className="hover:text-yellow-400 transition">Blogs</a>
             <a href="/cart" className="hover:text-yellow-400 transition">Cart</a>
+            <a href="/login" className="hover:text-yellow-400 transition">Login</a>
+            <a href="/register" className="bg-yellow-400 text-black px-4 py-1 rounded-full font-bold hover:bg-yellow-300 transition">Register</a>
           </div>
         </nav>
         {children}
